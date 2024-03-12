@@ -1,0 +1,21 @@
+{
+    "paes": [
+      {
+        "nome": "Pão Francês",
+        "imagem": "https://exemplo.com/pao_frances.jpg"
+      },
+      {
+        "nome": "Pão de Forma",
+        "imagem": "https://exemplo.com/pao_de_forma.jpg"
+      },
+      {
+        "nome": "Pão Integral",
+        "imagem": "https://exemplo.com/pao_integral.jpg"
+      },
+      {
+        "nome": "Baguete",
+        "imagem": "https://exemplo.com/baguete.jpg"
+      }
+    ]
+  }
+  
