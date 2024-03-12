@@ -1,0 +1,60 @@
+:root {
+  --yellow: #fc9200;
+  --red: #de0202;
+  --white: #fefefe;
+  --gray: #4D3F3F;
+}
+
+  .title-ingrediente{
+    color: var(--gray);
+    margin: 10% 0% 2% 5%;
+    font-weight: bold;
+    font-size: 1.8em;
+  }
+
+  .circle{
+    width: auto;
+    height: 100%;
+    background-color:var(--red);
+    border-radius: 50%;
+    color: var(--white);
+    font-size: .6em;
+    padding: 2%;
+    margin-left: 4%;
+  }
+  
+  .carousel-inner {
+    padding: 1em;
+  }
+
+  #labelCard{
+    display: block;
+    background-color: blue;
+  }
+
+  .chSelect{
+    visibility: visible;
+  }
+
+  .card-title{
+    color: var(--gray);
+  }
+  
+  .img-monte {
+    width: auto;
+    height: 20vh;
+    box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.20);
+    margin-bottom: 10%;
+  }
+
+  .check-item{
+    width: 20%;
+    position: absolute;
+    left: 65%;
+    top: -5%;
+    visibility: hidden;
+  }
+
+  #setas{
+    opacity: 1;
+  }
