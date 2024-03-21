@@ -14,46 +14,86 @@
       <p class="title-page fs-1 fw-bold text-center">Monte seu Lanche</p>
     </div>
     <!-- Fim background -->
-    
+   
     <!-- container -->
     <div class="container">
-      <div class="row" name="paes"> <!-- Paes -->
+      <!-- Paes -->
+      <div class="row" name="paes"> 
         <p class="title-ingrediente">
           Pão 
           <span class="circle">1x</span> 
         </p>
-        
-        <div id="carouselExampleControls" class="carousel slide">
-          <div class="carousel-inner" id="carrosel-pao">
-
-            <div class="carousel-item active">
-              <label for="Brioche" id="labelCard">
-                <div class="text-center">
-                  <img src="imagens/check-mark.png" alt="" class="check-item" id="Pão Brioche">
-                  <img src="https://www.mundofoodbq.com.br/media/catalog/product/cache/d420190aa9495635f9ee29df35607a5e/b/r/brioche_mini_a.jpg" class="img-monte" alt="...">
-                </div>
-                <div class="card-body">
-                  <h5 class="card-title text-center">Pão Brioche</h5>
-                  <input type="checkbox" class="chSelect" id="Brioche" onchange="selectItem()">
-                </div>
-              </label>
+    
+        <div class="sliders">
+          <div class="row">
+            <div class="col-2">
+              <div class="setas left-slider">
+                <img id="btnLeftPao" src="imagens/setaEsquerda.png" ></img>
+              </div>
             </div>
 
+            <div class="col-8">
+              <div class="boximg" id="AddImgPao">
+                <!-- imgs -->
+                <img src="imagens/check-mark.png" id="checkItemPao" class="imgMark">
+                <img src="" id="divImgPao" class="img-ingredient">
+               
+                <!-- texto -->
+                <div class="info">
+                  <h5 id="infoTitlePao"></h5>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-2">
+              <div class="setas right-slider">
+                <img id="btnRightPao" src="imagens/setaDireita.png"></img>
+              </div>
+            </div>
           </div>
+        </div>
+      </div>
 
-          <!-- Setas -->
-          <button class="carousel-control-prev" id="setas" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-            <img src="imagens/setaEsquerda.png" alt="">
-          </button>
-          <button class="carousel-control-next" id="setas" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-            <img src="imagens/setaDireita.png" alt="">
-          </button>
-          <!-- fim Setas -->
+      <!-- queijos -->
+      <div class="row" name="queijos"> 
+        <p class="title-ingrediente">
+          Queijos 
+          <span class="circle">2x</span> 
+        </p>
+    
+        <div class="sliders">
+          <div class="row">
+            <div class="col-2">
+              <div class="setas left-slider">
+                <img id="btnLeftQueijos" src="imagens/setaEsquerda.png" ></img>
+              </div>
+            </div>
 
+            <div class="col-8">
+              <div class="boximg" id="AddImgQueijos">
+                <!-- imgs -->
+                <img src="imagens/check-mark.png" id="checkItemQueijos" class="imgMark">
+                <img src="" id="divImgQueijos" class="img-ingredient">
+               
+                <!-- texto -->
+                <div class="info">
+                  <h5 id="infoTitleQueijos"></h5>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-2">
+              <div class="setas right-slider">
+                <img id="btnRightQueijos" src="imagens/setaDireita.png"></img>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
     <!-- Fim container -->
+
+    
   </body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.1/js/bootstrap.min.js"></script>
   <script src="js/monteSeuLanche.js"></script>

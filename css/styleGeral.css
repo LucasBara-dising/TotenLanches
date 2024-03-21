@@ -25,6 +25,7 @@
   }
   
   .container {
+    height: 100vh;
     top: 15%;
     position: absolute;
     background-color: var(--white);
