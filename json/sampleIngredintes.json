@@ -37,7 +37,65 @@
       },
       {
         "nome": "Queijo parmesão",
-        "imagem_url": "https://img.irroba.com.br/fit-in/600x600/filters:fill(fff):quality(80)/queijinc/catalog/produtos-2022/queijos/parmesao-capa-preta/dsc0233.JPGg"
+        "imagem_url": "https://img.irroba.com.br/fit-in/600x600/filters:fill(fff):quality(80)/queijinc/catalog/produtos-2022/queijos/parmesao-capa-preta/dsc0233.JPG"
+      }
+    ],
+    "molhos": [
+      {
+        "nome": "Maionese",
+        "imagem_url": "https://img.freepik.com/fotos-premium/molho-de-maionese-isolado-em-fundo-branco_88281-5339.jpg"
+      },
+      {
+        "nome": "Ketchup",
+        "imagem_url": "https://thumbs.dreamstime.com/b/ketchup-saboroso-vermelho-ou-molho-de-tomate-na-tigela-isolado-em-fundo-branco-isolada-185807696.jpg"
+      },
+      {
+        "nome": "Mostarda",
+        "imagem_url": "https://img.freepik.com/fotos-premium/molho-de-mostarda-em-tigela-isolado-no-branco_88281-1494.jpg"
+      },
+      {
+        "nome": "barbecue",
+        "imagem_url": "https://png.pngtree.com/thumb_back/fw800/background/20220630/pngtree-barbecue-sauce-isolated-on-white-background-swirl-plate-ketchup-photo-image_26726198.jpg"
+      }
+    ],
+    "salada": [
+      {
+        "nome": "Alface",
+        "imagem_url": "https://static.vecteezy.com/ti/fotos-gratis/p2/5582269-alface-salada-folha-isolada-em-fundo-branco-com-caminho-de-recorte-gratis-foto.jpg"
+      },
+      {
+        "nome": "Tomate",
+        "imagem_url": "https://thumbs.dreamstime.com/b/fatia-do-tomate-isolada-136959401.jpg"
+      },
+      {
+        "nome": "Cebola Roxa",
+        "imagem_url": "https://st2.depositphotos.com/1000504/6382/i/950/depositphotos_63826101-stock-photo-red-onion-slices.jpg"
+      },
+      {
+        "nome": "Pepino",
+        "imagem_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_XJ1BZjjLY3yRPKeE2VSblx1VPSb6UwHsD29kznVGkNRANfMcW6YgwuhbM0fDOagRyGI&usqp=CAU"
+      }
+    ],
+    "hamburger": [
+      {
+        "nome": "Alcatra",
+        "imagem_url": "https://t3.ftcdn.net/jpg/02/98/93/42/360_F_298934216_KzRuhZqScXdgxgtMhqFCaVYlrpqmiS8t.jpg"
+      },
+      {
+        "nome": "Tradicional",
+        "imagem_url": "https://previews.123rf.com/images/alexskp/alexskp2003/alexskp200300091/143499107-grilled-burger-meat-isolated-on-white.jpg"
+      },
+      {
+        "nome": "Hamburger de Frango", 
+        "imagem_url": "https://www.shutterstock.com/image-photo/raw-breaded-burger-meat-isolated-600nw-1457239784.jpg"
+      },
+      {
+        "nome": "Salsicha ",
+        "imagem_url": "https://lojaqui.com.br/images/produtos/site/15569.jpg"
+      },
+      {
+        "nome": "",
+        "imagem_url": "https://img.freepik.com/vetores-gratis/sinal-de-proibicao-vermelha-nenhum-icone-de-aviso-ou-simbolo-de-parada-ilustracao-vetorial-de-perigo-de-seguranca-isolado_56104-912.jpg"
       }
     ]
   

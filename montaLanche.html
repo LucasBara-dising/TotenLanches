@@ -18,7 +18,7 @@
     <!-- container -->
     <div class="container">
       <!-- Paes -->
-      <div class="row" name="paes"> 
+      <div class="row" id="grupItens" name="paes"> 
         <p class="title-ingrediente">
           Pão 
           <span class="circle">1x</span> 
@@ -55,7 +55,7 @@
       </div>
 
       <!-- queijos -->
-      <div class="row" name="queijos"> 
+      <div class="row" id="grupItens" name="queijos"> 
         <p class="title-ingrediente">
           Queijos 
           <span class="circle">2x</span> 
@@ -90,8 +90,132 @@
           </div>
         </div>
       </div>
+
+       <!-- Molhos -->
+       <div class="row" id="grupItens" name="Molhos"> 
+        <p class="title-ingrediente">
+          Molhos 
+          <span class="circle">2x</span> 
+        </p>
+    
+        <div class="sliders">
+          <div class="row">
+            <div class="col-2">
+              <div class="setas left-slider">
+                <img id="btnLeftMolhos" src="imagens/setaEsquerda.png" ></img>
+              </div>
+            </div>
+
+            <div class="col-8">
+              <div class="boximg" id="AddImgMolhos">
+                <!-- imgs -->
+                <img src="imagens/check-mark.png" id="checkItemMolhos" class="imgMark">
+                <img src="" id="divImgMolhos" class="img-ingredient">
+               
+                <!-- texto -->
+                <div class="info">
+                  <h5 id="infoTitleMolhos"></h5>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-2">
+              <div class="setas right-slider">
+                <img id="btnRightMolhos" src="imagens/setaDireita.png"></img>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+       <!-- Salada -->
+       <div class="row" id="grupItens" name="Salada"> 
+        <p class="title-ingrediente">
+          Salada 
+          <span class="circle">3x</span> 
+        </p>
+    
+        <div class="sliders">
+          <div class="row">
+            <div class="col-2">
+              <div class="setas left-slider">
+                <img id="btnLeftSalada" src="imagens/setaEsquerda.png" ></img>
+              </div>
+            </div>
+
+            <div class="col-8">
+              <div class="boximg" id="AddImgSalada">
+                <!-- imgs -->
+                <img src="imagens/check-mark.png" id="checkItemSalada" class="imgMark">
+                <img src="" id="divImgSalada" class="img-ingredient">
+               
+                <!-- texto -->
+                <div class="info">
+                  <h5 id="infoTitleSalada"></h5>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-2">
+              <div class="setas right-slider">
+                <img id="btnRightSalada" src="imagens/setaDireita.png"></img>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+       <!-- Hamburger -->
+       <div class="row" id="grupItens" name="Hamburger"> 
+        <p class="title-ingrediente">
+          Hamburger 
+          <span class="circle">1x</span> 
+        </p>
+    
+        <div class="sliders">
+          <div class="row">
+            <div class="col-2">
+              <div class="setas left-slider">
+                <img id="btnLeftHamburger" src="imagens/setaEsquerda.png" ></img>
+              </div>
+            </div>
+
+            <div class="col-8">
+              <div class="boximg" id="AddImgHamburger">
+                <!-- imgs -->
+                <img src="imagens/check-mark.png" id="checkItemHamburger" class="imgMark">
+                <img src="" id="divImgHamburger" class="img-ingredient">
+               
+                <!-- texto -->
+                <div class="info">
+                  <h5 id="infoTitleHamburger"></h5>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-2">
+              <div class="setas right-slider">
+                <img id="btnRightHamburger" src="imagens/setaDireita.png"></img>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Bnt ok -->
+      <div class="text-center">
+        <button type="button" class="btn fw-bold" id="btnOK">OK</button>
+      </div>
+     
     </div>
     <!-- Fim container -->
+
+    <!-- footer total -->
+    <div class="fixed-bottom row" id="footerTotal">
+        <div class="col-6 text-start fs-2 fw-bold">Total</div>
+        <div class="col-6 text-end fs-2">R$:145</div>
+    </div>
 
     
   </body>

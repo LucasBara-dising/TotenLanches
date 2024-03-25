@@ -5,9 +5,15 @@
   --gray: #4D3F3F;
 }
 
+#grupItens{
+  position: relative;
+  margin-bottom: 20%;
+}
+
   .title-ingrediente{
     color: var(--gray);
-    margin: 10% 0% 2% 5%;
+    margin-left: 5%;
+    margin-bottom: 0%;
     font-weight: bold;
     font-size: 1.8em;
   }
@@ -20,20 +26,19 @@
     color: var(--white);
     font-size: .6em;
     padding: 2%;
-    margin-left: 4%;
+    margin-left: 2%;
   }
   
   .sliders {
+    position: relative;
     width: auto;
     display: block;
-    padding: 2rem;
-    top: 25%;
+    padding: 1rem;
   }
 
   .boximg {
     width: auto;
     height: 20vh;
-    margin-bottom: 10%;
     text-align: center;
   }
 
