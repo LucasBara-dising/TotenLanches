@@ -5,9 +5,15 @@
   --gray: #4D3F3F;
 }
 
+#grupItens{
+  position: relative;
+  margin-bottom: 20%;
+}
+
   .title-ingrediente{
     color: var(--gray);
-    margin: 10% 0% 2% 5%;
+    margin-left: 5%;
+    margin-bottom: 0%;
     font-weight: bold;
     font-size: 1.8em;
   }
@@ -20,41 +26,62 @@
     color: var(--white);
     font-size: .6em;
     padding: 2%;
-    margin-left: 4%;
+    margin-left: 2%;
   }
   
-  .carousel-inner {
-    padding: 1em;
-  }
-
-  #labelCard{
+  .sliders {
+    position: relative;
+    width: auto;
     display: block;
-    background-color: blue;
+    padding: 1rem;
   }
 
-  .chSelect{
-    visibility: visible;
-  }
-
-  .card-title{
-    color: var(--gray);
-  }
-  
-  .img-monte {
+  .boximg {
     width: auto;
     height: 20vh;
+    text-align: center;
+  }
+
+  .img-ingredient {
+    width: auto;
+    max-width: 90%;
+    height: 20vh;
+    left: 20%;
+    align-self: center;
+    position: absolute;
     box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.20);
     margin-bottom: 10%;
   }
 
-  .check-item{
-    width: 20%;
+  /* arrumar posisão */
+  .imgMark{
+    width: 12%;
     position: absolute;
-    left: 65%;
-    top: -5%;
+    top: 10%;
+    z-index: 1;
     visibility: hidden;
   }
-
-  #setas{
-    opacity: 1;
+  
+  .setas{
+    position: absolute;
+    top: 25%;
+    left: 0;
+    width: 100%;
+    padding: .5rem;
+  }
+  
+  .left-slider,.right-slider {
+    height: auto;
+    width: 25%;
+    position: relative;
+  }
+  
+  .info {
+    width: 100%;
+    position: absolute;
+    margin-top: 50%;
+    left: 0;
+    z-index: 1;
+    color: var(--gray);
+    text-align: center;
   }
