@@ -3,6 +3,7 @@ let itensSelectQueijos=[]
 let itensSelectMolhos=[]
 let itensSelectSalada=[]
 let itensSelectHamburger=[]
+let valorPedido=23.00
 
 fetch('./json/sampleIngredintes.json').then((response) => {
 response.json().then((dados) => {
@@ -15,7 +16,7 @@ response.json().then((dados) => {
   const sizeJsonQueijos = dados.queijos.length
   criaSlider("AddImgQueijos","btnLeftQueijos", "btnRightQueijos", "divImgQueijos", 
   "infoTitleQueijos", "checkItemQueijos", itensSelectQueijos , dados.queijos, 
-  sizeJsonQueijos, 0,1)
+  sizeJsonQueijos, 0,2)
 
   //Molhos
   const sizeJsonMolhos = dados.molhos.length
@@ -33,8 +34,13 @@ response.json().then((dados) => {
   const sizeJsonHamburger = dados.hamburger.length
   criaSlider("AddImgHamburger","btnLeftHamburger", "btnRightHamburger", "divImgHamburger", 
   "infoTitleHamburger", "checkItemHamburger", itensSelectHamburger , dados.hamburger, 
-  sizeJsonHamburger, 0,2)
+  sizeJsonHamburger, 0,1)
 
+  const btnOK = document.getElementById("btnOK");
+  btnOK.addEventListener("click", function() {
+    geraJson(dados.paes, dados.queijos, dados.molhos, dados.salada, dados.hamburger,valorPedido)
+  });
+  
   });
 })
 
@@ -51,13 +57,19 @@ function criaSlider(divAddImg, btnLeft, btnRight, divImg, divTitle, imgMarkItem,
         removeByElement(arrayItemIngredient,currentImg)
         
       }else{
-        if(arrayItemIngredient.length>=limiteItens){
+        //execeção para o pão
+        if(arrayItemIngredient==itensSelectPao && arrayItemIngredient.length>=limiteItens){
           arrayItemIngredient=[]
+        }
+
+        //adiona valor extra para cada item a mais
+        if(arrayItemIngredient.length>=limiteItens){  
+          valorPedido+=1.50
+          updateTotal(valorPedido)
         }
         arrayItemIngredient.push(currentImg)
       }
       checkItemSelect(arrayItemIngredient, currentImg, imgMarkItem)
-      console.log(arrayItemIngredient)
     });
 
     rightButton.addEventListener("click", function() {
@@ -97,9 +109,62 @@ function checkItemSelect(arrayItem, idIngredient,checkItem){
    }
 }
 
+function updateTotal(total){
+  const txtTotal = document.getElementById("txtTotal")
+  txtTotal.innerHTML="R$: "+total
+}
+
 function removeByElement(array, item){
   const index = array.indexOf(item);
   if (index > -1) { 
     array.splice(index, 1); 
   }
 }
+
+function geraJson(paes, queijos, molhos, saladas, hamburger, total){
+  const pedido = {
+    id: 5,
+    firstName: "Maria",
+    preco: total,
+    status: "não pago",
+    pao: {
+      name: paes[0].nome
+    },
+    queijos: [
+      geraItensJson(itensSelectQueijos.length, queijos)
+    ],
+    molhos: [
+      geraItensJson(itensSelectMolhos.length, molhos)
+    ],
+    saladas: [
+      geraItensJson(itensSelectSalada.length, saladas)
+    ],
+    hamburger: [
+      geraItensJson(itensSelectHamburger.length, hamburger)
+    ]
+    
+  };
+
+  // converting user to JSON
+  const pedidoJSON = JSON.stringify(pedido);
+  console.log(pedidoJSON)
+}
+
+function geraItensJson(sizeArray, objIngredient){
+  let q=[]
+  for (let i = 0; i < sizeArray; i++) {
+    q.push(geraItensJsonT(i,objIngredient))
+   return q
+  }
+  
+}
+
+//TO DO: crai objeto json para varios itens
+function geraItensJsonT(k, objIngredient){
+  let myJson = {}
+  var objName = 'Item' + (k+1);
+  var objValue = objIngredient[k].nome;
+  console.log(myJson)
+  return myJson[objName] = objValue;
+}
+ 
