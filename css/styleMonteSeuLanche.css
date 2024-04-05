@@ -10,14 +10,6 @@
   margin-bottom: 20%;
 }
 
-  .title-ingrediente{
-    color: var(--gray);
-    margin-left: 5%;
-    margin-bottom: 0%;
-    font-weight: bold;
-    font-size: 1.8em;
-  }
-
   .circle{
     width: auto;
     height: 100%;
@@ -44,7 +36,8 @@
 
   .img-ingredient {
     width: auto;
-    max-width: 90%;
+    max-width: 60%;
+    min-width: 60%;
     height: 20vh;
     left: 20%;
     align-self: center;
@@ -55,9 +48,11 @@
 
   /* arrumar posisão */
   .imgMark{
-    width: 12%;
     position: absolute;
-    top: 10%;
+    height: 58px;
+    width: 58px;
+    margin-left: 20%;
+    margin-top: -5%;
     z-index: 1;
     visibility: hidden;
   }

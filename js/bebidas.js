@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', function () {
     })
 
     function handleClick(){
-
         existingCheck = this.querySelector('.check'); //'this' é cada card selecionado
         let itemName = this.querySelector('.card-footer').textContent;
         let itemAddCheck = this.querySelector('.card-body');
@@ -28,7 +27,6 @@ document.addEventListener('DOMContentLoaded', function () {
            
             if(!selectedItems.some(item => item.name === itemName)){
                 selectedItems.push({ name: itemName });
-               
             }
         }
     };
@@ -108,6 +106,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let checkout = document.querySelector('.checkout')
     
     images.forEach(image=>{
+        console.log(images)
         image.addEventListener('click', ()=>{
             checkout.classList.toggle('visible');
             if(checkout.classList.contains('visible')){
@@ -125,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function () {
     })
     
 
-    let btn = document.querySelector('.close')
+    let btn = document.querySelector('.btn-close')
     btn.addEventListener('click', ()=>{
         
         if(btn.click){

@@ -2,6 +2,7 @@ let itensSelectPao=[]
 let itensSelectQueijos=[]
 let itensSelectMolhos=[]
 let itensSelectSalada=[]
+let itensSelectExtra=[]
 let itensSelectHamburger=[]
 let valorPedido=23.00
 
@@ -30,6 +31,12 @@ response.json().then((dados) => {
   "infoTitleSalada", "checkItemSalada", itensSelectSalada , dados.salada, 
   sizeJsonSalada, 0,3)
 
+  //Extra
+  const sizeJsonExtra = dados.extra.length
+  criaSlider("AddImgExtra","btnLeftExtra", "btnRightExtra", "divImgExtra", 
+  "infoTitleExtra", "checkItemExtra", itensSelectExtra , dados.extra, 
+  sizeJsonExtra, 0,1)
+
   //Hamburger
   const sizeJsonHamburger = dados.hamburger.length
   criaSlider("AddImgHamburger","btnLeftHamburger", "btnRightHamburger", "divImgHamburger", 
@@ -38,7 +45,7 @@ response.json().then((dados) => {
 
   const btnOK = document.getElementById("btnOK");
   btnOK.addEventListener("click", function() {
-    geraJson(dados.paes, dados.queijos, dados.molhos, dados.salada, dados.hamburger,valorPedido)
+    geraJson(dados.paes, dados.queijos, dados.molhos, dados.salada, dados.extra, dados.hamburger,valorPedido)
   });
   
   });
@@ -90,7 +97,6 @@ function criaSlider(divAddImg, btnLeft, btnRight, divImg, divTitle, imgMarkItem,
 }
 
 function showItem(divImg, divTitle, imgMarkItem, arrayItemIngredient, objIngredient, currentImg){
-  //img
   const singleImg = document.getElementById(divImg)
   singleImg.src = objIngredient[currentImg].imagem_url
 
@@ -122,50 +128,44 @@ function removeByElement(array, item){
   }
 }
 
-function geraJson(paes, queijos, molhos, saladas, hamburger, total){
-  const pedido = {
-    id: 5,
-    firstName: "Maria",
-    preco: total,
-    status: "não pago",
-    pao: {
-      name: paes[0].nome
-    },
-    queijos: [
-      geraItensJson(itensSelectQueijos.length, queijos)
-    ],
-    molhos: [
-      geraItensJson(itensSelectMolhos.length, molhos)
-    ],
-    saladas: [
-      geraItensJson(itensSelectSalada.length, saladas)
-    ],
-    hamburger: [
-      geraItensJson(itensSelectHamburger.length, hamburger)
-    ]
-    
-  };
+function geraJson(objPaes, objQueijos, objMolhos, objSaladas, objExtra, objHamburger, total){
+  //inicia arrays
+  let pao= []
+  let queijo= []
+  let molho= []
+  let salada= []
+  let extra= []
+  let hamburger= []
 
-  // converting user to JSON
-  const pedidoJSON = JSON.stringify(pedido);
+  //gera itens
+  geraItensJson(itensSelectPao, pao, objPaes)
+  geraItensJson(itensSelectQueijos, queijo, objQueijos)
+  geraItensJson(itensSelectMolhos, molho, objMolhos)
+  geraItensJson(itensSelectSalada, salada, objSaladas)
+  geraItensJson(itensSelectExtra, extra, objExtra)
+  geraItensJson(itensSelectHamburger, hamburger, objHamburger)
+
+  let pedido = [{
+    "Id":2,  
+    "firstName": "Maria",
+    "preco": total,
+    "status": "não pago",
+    pao,
+    queijo,
+    molho,
+    salada,
+    extra,
+    hamburger,
+  }];
+
+  // converting array pedido para JSON
+  const pedidoJSON = JSON.stringify(pedido, null, 2);
   console.log(pedidoJSON)
 }
 
-function geraItensJson(sizeArray, objIngredient){
-  let q=[]
-  for (let i = 0; i < sizeArray; i++) {
-    q.push(geraItensJsonT(i,objIngredient))
-   return q
-  }
-  
+function geraItensJson(arraySelect, arrayItem, objIngredient){
+  arraySelect.forEach(element => {
+    var objValue = objIngredient[element].nome;
+    arrayItem.push({ "nome" : objValue });
+  });
 }
-
-//TO DO: crai objeto json para varios itens
-function geraItensJsonT(k, objIngredient){
-  let myJson = {}
-  var objName = 'Item' + (k+1);
-  var objValue = objIngredient[k].nome;
-  console.log(myJson)
-  return myJson[objName] = objValue;
-}
- 

@@ -9,17 +9,36 @@
     <title>Monte eu Lanche</title>
   </head>
   <body>
+    
     <!-- background -->
     <div class="background">
-      <p class="title-page fs-1 fw-bold text-center">Monte seu Lanche</p>
+      <!-- Button trigger modal -->
+      <img src="imagens/carrinho-de-compras.png" class="imgCarrinho" id="addToCartButton" data-bs-toggle="modal" data-bs-target="#exampleModal"/>
+
+      <div class="row choose text-center">
+          <a  class="col-4">
+              <img class="iconCategoria" src="imagens/bread.png" alt="">
+              <div class="barra"></div>
+          </a>
+          <a href="bebidas.html" class="col-4">
+              <img class="iconCategoria" src="imagens/refrigerante.png" alt="">
+              
+          </a>
+          <a class="col-4">
+              <img class="iconCategoria" src="imagens/batatas-fritas.png" alt="">
+          </a>
+      </div>
     </div>
     <!-- Fim background -->
    
     <!-- container -->
     <div class="containerProdutos">
+      <p class="fs-1 fw-bold text-center">
+        Monte seu Lanche 
+      </p>
       <!-- Paes -->
       <div class="row" id="grupItens" name="paes"> 
-        <p class="title-ingrediente">
+        <p class="title-item">
           Pão 
           <span class="circle">1x</span> 
         </p>
@@ -56,10 +75,10 @@
 
       <!-- queijos -->
       <div class="row" id="grupItens" name="queijos"> 
-        <p class="title-ingrediente">
+        <p class="title-item">
           Queijos 
           <span class="circle">2x</span> 
-          <p class="fs-5 ms-3" id="preçoExtraQueijos">+R$1.50</p>
+          <p class="fs-5" id="preçoExtraQueijos">+R$1.50</p>
         </p>
     
         <div class="sliders">
@@ -94,7 +113,7 @@
 
        <!-- Molhos -->
        <div class="row" id="grupItens" name="Molhos"> 
-        <p class="title-ingrediente">
+        <p class="title-item">
           Molhos 
           <span class="circle">2x</span> 
         </p>
@@ -131,7 +150,7 @@
 
        <!-- Salada -->
        <div class="row" id="grupItens" name="Salada"> 
-        <p class="title-ingrediente">
+        <p class="title-item">
           Salada 
           <span class="circle">3x</span> 
         </p>
@@ -166,9 +185,46 @@
         </div>
       </div>
 
+       <!-- Extra -->
+       <div class="row" id="grupItens" name="Extra"> 
+        <p class="title-item">
+          Extra 
+          <span class="circle">1x</span> 
+        </p>
+    
+        <div class="sliders">
+          <div class="row">
+            <div class="col-2">
+              <div class="setas left-slider">
+                <img id="btnLeftExtra" src="imagens/setaEsquerda.png" ></img>
+              </div>
+            </div>
+
+            <div class="col-8">
+              <div class="boximg" id="AddImgExtra">
+                <!-- imgs -->
+                <img src="imagens/check-mark.png" id="checkItemExtra" class="imgMark">
+                <img src="" id="divImgExtra" class="img-ingredient">
+               
+                <!-- texto -->
+                <div class="info">
+                  <h5 id="infoTitleExtra"></h5>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-2">
+              <div class="setas right-slider">
+                <img id="btnRightExtra" src="imagens/setaDireita.png"></img>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
        <!-- Hamburger -->
        <div class="row" id="grupItens" name="Hamburger"> 
-        <p class="title-ingrediente">
+        <p class="title-item">
           Hamburger 
           <span class="circle">1x</span> 
         </p>
@@ -208,7 +264,6 @@
       <div class="text-center">
         <a href="./bebidas.html"> <button type="button" class="btn fw-bold" id="btnOK">OK</button></a>
       </div>
-     
     </div>
     <!-- Fim container -->
 

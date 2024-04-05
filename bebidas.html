@@ -5,45 +5,91 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Escolha sua bebida</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/styleBebidas.css">
     <link rel="stylesheet" type="text/css" href="css/styleGeral.css">
-    
 </head>
     
 <body>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h1 class="modal-title fs-5 ">Carrinho</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+            <p class="carrinhoTitle">
+                Hamburguer
+                <p class="fs-5 ps-4">Baguete, Mussarela, Alface, Tomate, 
+                    Barbecue, Bancon, Alcatra
+                </p>
+            </p>
+
+            <p class="carrinhoTitle">
+                Bebida
+                <p class="fs-5 ps-4">
+                    1x Suco de Laranja
+                </p>
+            </p>
+            </div>
+            <div class="modal-footer">
+                <p class="carrinhoTitle text-center" id="totalPrice">Total: R$29.98</p>
+            </div>
+        </div>
+        </div>
+    </div>
+
     <!-- ------------------------ cabeçalho ------->
     <!-- to do arrumar campo de carrinho -->
     <!-- Ícone do Carrinho de Compras PARA IMPLEMENTAR -->
-    <navbar class=" navbar navbar-expand   d-flex z-ind justify-content-between 
-    justify-content-end" id="addToCartButton">
+    <!-- <navbar class=" navbar navbar-expand   d-flex z-ind justify-content-between 
+    justify-content-end" id="addToCartButton"> -->
     <!-- div com parágrafo para receber a quantidade de itens do carrinho -->
-    <div class=" qtd ml-4 img-responsive position-absolute" style="top: 100%">
+    <!-- <div class=" qtd ml-4 img-responsive position-absolute" style="top: 100%">
     <p class="quantityOfProducts"> </p>
     </div>
     <div class="d-flex justify-content-between top-0" href="">
     <img class="ml-1  image show img-fluid position-absolute" src="./img/carrinho2.png" alt="">
-    </div>
+    </div> -->
     <!-- Área do carrinho para receber os itens comprados -->
-    <div class="container checkout position-absolute p-3" style="display: none">
+    <!-- <div class="container checkout position-absolute p-3" style="display: none">
     <h2 class="m-4">Meu pedido</h2>
     <button class="mr-5 close show btn btn-close" style="color: beige;">X</button>
-    <ul class="d-flex justify-content-between flex-column"  id="cartItems"></ul>
+    <ul class="d-flex justify-content-between flex-column"  id="cartItems"></ul> -->
     <!-- DIV que vai receber o total da compra -->
-    <div class="container m-3">
+    <!-- <div class="container m-3">
         <p id="totalPrice">Total: R$0,00</p>
     </div>
     </div>
 
-    </navbar>
+    </navbar> -->
 
     <!-- background -->
     <div class="background">
-        <p class="title-page fs-1 fw-bold text-center">Escolha sua bebida</p>
+        <!-- Button trigger modal -->
+        <img src="imagens/carrinho-de-compras.png" class="imgCarrinho" id="addToCartButton" data-bs-toggle="modal" data-bs-target="#exampleModal"/>
+
+        <div class="row choose text-center">
+            <a href="montaLanche.html" class="col-4">
+                <img class="iconCategoria" src="imagens/bread.png" alt="">
+            </a>
+            <a class="col-4">
+                <img class="iconCategoria" src="imagens/refrigerante.png" alt="">
+                <div class="barra"></div>
+            </a>
+            <a class="col-4">
+                <img class="iconCategoria" src="imagens/batatas-fritas.png" alt="">
+            </a>
+        </div>
+        <!-- <p class="title-page fs-1 fw-bold text-center">Escolha sua bebida</p> -->
     </div>
       <!-- Fim background -->
 
     <!-- container -->
     <div class="containerProdutos">
+
 
     <!-- Botão Adiciona ao carrinho (DESNECESSÁRIO): foi movido para dentro do navbar
     <div class=" z-ind container w-50  position-sticky " style="top:30px">
@@ -52,8 +98,8 @@
 
 
     <!-- --------- SUCOS NATURAIS -->
-    <div class="container mt-5">
-        <p class="title-ingrediente">
+    <div class="container mt-2">
+        <p class="title-item">
             Sucos Naturais de 500ml 
             <p class="fs-3">R$8.90</p>
           </p>
@@ -99,13 +145,13 @@
 
 
        <!-- -------------- REFRIGERANTES ---------------->
-    <div class="container">
-        <p class="title-ingrediente">
+    <div class="container mt-3">
+        <p class="title-item">
             Refrigerantes 
             <p class="fs-5">R$5.90</p>
           </p>
 
-        <div class="row gx-5 ">
+        <div class="row gx-5">
             <div class="col-4 mt-3">
                 <div class="card-body">
                     <img class="img-fluid" src="./img/coca-cola.png" alt="" srcset="">  
@@ -148,7 +194,7 @@
     <!-- -------------- ÁGUA ---------------->
 
     <div class="container mt-5">
-        <p class="title-ingrediente">
+        <p class="title-item">
             Água 500ml 
             <p class="fs-5">R$4.00</p>
         </p>
