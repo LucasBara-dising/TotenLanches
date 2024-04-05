@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escolha sua bebida</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/styleGeral.css">
+    
+</head>
+    
+<body>
+    <!-- ------------------------ cabeçalho ------->
+    <!-- to do arrumar campo de carrinho -->
+    <!-- Ícone do Carrinho de Compras PARA IMPLEMENTAR -->
+    <navbar class=" navbar navbar-expand   d-flex z-ind justify-content-between 
+    justify-content-end" id="addToCartButton">
+    <!-- div com parágrafo para receber a quantidade de itens do carrinho -->
+    <div class=" qtd ml-4 img-responsive position-absolute" style="top: 100%">
+    <p class="quantityOfProducts"> </p>
+    </div>
+    <div class="d-flex justify-content-between top-0" href="">
+    <img class="ml-1  image show img-fluid position-absolute" src="./img/carrinho2.png" alt="">
+    </div>
+    <!-- Área do carrinho para receber os itens comprados -->
+    <div class="container checkout position-absolute p-3" style="display: none">
+    <h2 class="m-4">Meu pedido</h2>
+    <button class="mr-5 close show btn btn-close" style="color: beige;">X</button>
+    <ul class="d-flex justify-content-between flex-column"  id="cartItems"></ul>
+    <!-- DIV que vai receber o total da compra -->
+    <div class="container m-3">
+        <p id="totalPrice">Total: R$0,00</p>
+    </div>
+    </div>
+
+    </navbar>
+
+    <!-- background -->
+    <div class="background">
+        <p class="title-page fs-1 fw-bold text-center">Escolha sua bebida</p>
+    </div>
+      <!-- Fim background -->
+
+    <!-- container -->
+    <div class="containerProdutos">
+
+    <!-- Botão Adiciona ao carrinho (DESNECESSÁRIO): foi movido para dentro do navbar
+    <div class=" z-ind container w-50  position-sticky " style="top:30px">
+        <button id="addToCartButton" class="btn show btn-primary">VER CARRINHO</button>
+    </div> -->
+
+
+    <!-- --------- SUCOS NATURAIS -->
+    <div class="container mt-5">
+        <p class="title-ingrediente">
+            Sucos Naturais de 500ml 
+            <p class="fs-3">R$8.90</p>
+          </p>
+
+        <div class="row gx-5">
+            <div class="col-4 mt-3">
+                <div class="card-body">
+                    <img class="img-fluid" src="./img/sucoLaranja.avif" alt="" srcset="">  
+                </div>
+                <h6 class="card-footer mt-3 text-center">Suco de Laranja</h6>
+                <input id="priceDrink2" name="prices" hidden type="number" value=8.9>
+            </div>
+    
+            <div class="col-4 mt-3">
+                <div class="card-body">
+                    <img class="img-fluid" src="./img/suco_limao.png" alt="" srcset="">
+                </div>
+                <h6 class="card-footer mt-3 text-center">Suco de limão</h6>
+                <input id="priceDrink2" name="prices" hidden type="number" value='5.90'>
+            </div>
+    
+    
+            <div class="col-4 mt-3">
+                <div class="card-body">
+                    <img class="img-fluid img-responsive" src="./img/sucoAbacaxi.avif" alt="" srcset="">
+                </div>
+      
+                <h6 class="card-footer mt-3 w-100 text-center">Suco de abacaxi</h6>
+                <input id="priceDrink2" name="prices" hidden type="number" value='5.90'>
+            </div>
+
+            <div class="col-4 mt-3">
+                <div class="card-body">
+                    <img class="img-fluid img-responsive" src="./img/sucoUva.avif" alt="">
+                </div>
+      
+                <h6 class="card-footer mt-3 w-100 text-center">Suco de uva</h6>
+                <input id="priceDrink2" name="prices" hidden type="number" value='5.90'>
+            </div>
+        </div>
+        
+    </div>
+
+
+       <!-- -------------- REFRIGERANTES ---------------->
+    <div class="container">
+        <p class="title-ingrediente">
+            Refrigerantes 
+            <p class="fs-5">R$5.90</p>
+          </p>
+
+        <div class="row gx-5 ">
+            <div class="col-4 mt-3">
+                <div class="card-body">
+                    <img class="img-fluid" src="./img/coca-cola.png" alt="" srcset="">  
+                </div>
+                <h6 class="card-footer mt-3 text-center">Coca-cola</h6>
+                <input id="priceDrink2" name="prices" hidden type="number" value=8.9>
+            </div>
+    
+            <div class="col-4 mt-3">
+                <div class="card-body">
+                    <img class="img-fluid" src="./img/fanta-guaraná.jpg" alt="" srcset="">
+                </div>
+                <h6 class="card-footer mt-3 text-center">Fanta Guaraná</h6>
+                <input id="priceDrink2" name="prices" hidden type="number" value='5.90'>
+            </div>
+    
+    
+            <div class="col-4 mt-3">
+                <div class="card-body">
+                    <img class="img-fluid img-responsive" src="./img/fanta.jpg" alt="" srcset="">
+                </div>
+      
+                <h6 class="card-footer mt-3 w-100 text-center">Fanta Laranja</h6>
+                <input id="priceDrink2" name="prices" hidden type="number" value='5.90'>
+            </div>
+
+            <div class="col-4 mt-3">
+                <div class="card-body">
+                    <img class="img-fluid img-responsive" src="./img/fanta.jpg" alt="" srcset="">
+                </div>
+      
+                <h6 class="card-footer mt-3 w-100 text-center">Fanta Laranja</h6>
+                <input id="priceDrink2" name="prices" hidden type="number" value='5.90'>
+            </div>
+        </div>
+        
+    </div>
+
+
+    <!-- -------------- ÁGUA ---------------->
+
+    <div class="container mt-5">
+        <p class="title-ingrediente">
+            Água 500ml 
+            <p class="fs-5">R$4.00</p>
+        </p>
+
+        <div class="row gx-5 ">
+            <div class="col-4 mt-3">
+                <div class="card-body">
+                    <img class="img-fluid" src="./img/áugaSemGás.webp" >  
+                </div>
+                <h6 class="card-footer mt-3 text-center">Agua sem Gás</h6>
+                <input id="priceDrink2" name="prices" hidden type="number" value=4.00>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bnt ok -->
+    <div class="text-center mt-5">
+        <a href="./total_a_pagar.html">
+            <button type="button" class="btn fw-bold" id="btnOK">OK</button>
+        </a>
+    </div>
+    
+    
+    </div>
+    <!-- Fim container -->
+
+    <!-- footer total -->
+    <div class="fixed-bottom row" id="footerTotal">
+        <div class="col-6 text-start fs-2 fw-bold">Total</div>
+        <div class="col-6 text-end fs-2" id="txtTotal">R$:25</div>
+    </div>
+</div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.1/js/bootstrap.min.js"></script>
+    <script src="js/bebidas.js"></script>
+
+</body>
+</html>

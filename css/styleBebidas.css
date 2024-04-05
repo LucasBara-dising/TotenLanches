@@ -1,0 +1,43 @@
+        .backGround{
+            background-color: maroon;
+            max-width:auto;
+            color: whitesmoke;
+        }
+        .card-header{
+            background-color: chocolate;
+            color: whitesmoke;
+            border-radius: 0 0 5px 5px;
+        }
+
+        img{
+            width: 200px;
+            height:300px;
+
+        }
+
+        .title-ingrediente{
+            color: var(--gray);
+            font-weight: bold;
+            font-size: 1.8em;
+        }
+
+        .check{
+            position: absolute;
+            height: 46px;
+            width: 46px;
+            margin-left: -5%;
+            margin-top: -5%;
+        }
+
+        .image{
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            
+        }
+        .z-ind{
+            z-index: 1;
+        }
+        .qtd{
+            z-index: 10;
+        }

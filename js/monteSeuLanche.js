@@ -90,6 +90,7 @@ function criaSlider(divAddImg, btnLeft, btnRight, divImg, divTitle, imgMarkItem,
 }
 
 function showItem(divImg, divTitle, imgMarkItem, arrayItemIngredient, objIngredient, currentImg){
+  //img
   const singleImg = document.getElementById(divImg)
   singleImg.src = objIngredient[currentImg].imagem_url
 
