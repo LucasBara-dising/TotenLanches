@@ -4,7 +4,6 @@ let itensSelectMolhos=[]
 let itensSelectSalada=[]
 let itensSelectExtra=[]
 let itensSelectHamburger=[]
-let valorPedido=23.00
 
 fetch('./json/sampleIngredintes.json').then((response) => {
 response.json().then((dados) => {
@@ -45,8 +44,23 @@ response.json().then((dados) => {
 
   const btnOK = document.getElementById("btnOK");
   btnOK.addEventListener("click", function() {
+    const btnOKModel = document.getElementById("btnOKModel");
+    btnOKModel.style.display="block"
+    const txtTotal = document.getElementById("totalPrice");
+    txtTotal.style.display="none"
     geraJson(dados.paes, dados.queijos, dados.molhos, dados.salada, dados.extra, dados.hamburger,valorPedido)
   });
+
+  const carrinho = document.getElementById("addToCartButton");
+  carrinho.addEventListener("click", function() {
+    const btnOKModel = document.getElementById("btnOKModel");
+    btnOKModel.style.display="none"
+    const txtTotal = document.getElementById("totalPrice");
+    txtTotal.style.display="block"
+
+    //funcion na pagina criaJsonGeral
+    geraTextIngrientes(dados.paes, dados.queijos, dados.molhos, dados.salada, dados.extra, dados.hamburger,valorPedido)
+  })
   
   });
 })
@@ -79,6 +93,7 @@ function criaSlider(divAddImg, btnLeft, btnRight, divImg, divTitle, imgMarkItem,
       checkItemSelect(arrayItemIngredient, currentImg, imgMarkItem)
     });
 
+    //mecanica apra passar para o proximo a direita
     rightButton.addEventListener("click", function() {
       currentImg++
       if(currentImg==sizeobjIngredient){
@@ -87,15 +102,17 @@ function criaSlider(divAddImg, btnLeft, btnRight, divImg, divTitle, imgMarkItem,
       showItem(divImg, divTitle, imgMarkItem,arrayItemIngredient, objIngredient, currentImg)
         });
       
-      leftButton.addEventListener("click", function() {
-        currentImg--
-        if(currentImg==-1){
-          currentImg=sizeobjIngredient-1
-        }
-        showItem(divImg, divTitle, imgMarkItem, arrayItemIngredient, objIngredient, currentImg)
-      });
+    //mecanica apra passar para o proximo a esquerda
+    leftButton.addEventListener("click", function() {
+      currentImg--
+      if(currentImg==-1){
+        currentImg=sizeobjIngredient-1
+      }
+      showItem(divImg, divTitle, imgMarkItem, arrayItemIngredient, objIngredient, currentImg)
+    });
 }
 
+//recebe o item e mostra a img com o texto
 function showItem(divImg, divTitle, imgMarkItem, arrayItemIngredient, objIngredient, currentImg){
   const singleImg = document.getElementById(divImg)
   singleImg.src = objIngredient[currentImg].imagem_url
@@ -107,6 +124,7 @@ function showItem(divImg, divTitle, imgMarkItem, arrayItemIngredient, objIngredi
   checkItemSelect(arrayItemIngredient, currentImg, imgMarkItem)
 }
 
+//remove ou mostra o check
 function checkItemSelect(arrayItem, idIngredient,checkItem){
   const checkItemImg = document.getElementById(checkItem);
   if(arrayItem.includes(idIngredient)==true){
@@ -116,6 +134,7 @@ function checkItemSelect(arrayItem, idIngredient,checkItem){
    }
 }
 
+//atualiza o total
 function updateTotal(total){
   const txtTotal = document.getElementById("txtTotal")
   txtTotal.innerHTML="R$: "+total
@@ -126,46 +145,4 @@ function removeByElement(array, item){
   if (index > -1) { 
     array.splice(index, 1); 
   }
-}
-
-function geraJson(objPaes, objQueijos, objMolhos, objSaladas, objExtra, objHamburger, total){
-  //inicia arrays
-  let pao= []
-  let queijo= []
-  let molho= []
-  let salada= []
-  let extra= []
-  let hamburger= []
-
-  //gera itens
-  geraItensJson(itensSelectPao, pao, objPaes)
-  geraItensJson(itensSelectQueijos, queijo, objQueijos)
-  geraItensJson(itensSelectMolhos, molho, objMolhos)
-  geraItensJson(itensSelectSalada, salada, objSaladas)
-  geraItensJson(itensSelectExtra, extra, objExtra)
-  geraItensJson(itensSelectHamburger, hamburger, objHamburger)
-
-  let pedido = [{
-    "Id":2,  
-    "firstName": "Maria",
-    "preco": total,
-    "status": "não pago",
-    pao,
-    queijo,
-    molho,
-    salada,
-    extra,
-    hamburger,
-  }];
-
-  // converting array pedido para JSON
-  const pedidoJSON = JSON.stringify(pedido, null, 2);
-  console.log(pedidoJSON)
-}
-
-function geraItensJson(arraySelect, arrayItem, objIngredient){
-  arraySelect.forEach(element => {
-    var objValue = objIngredient[element].nome;
-    arrayItem.push({ "nome" : objValue });
-  });
 }

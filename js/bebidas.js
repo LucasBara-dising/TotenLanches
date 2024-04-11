@@ -10,6 +10,12 @@ document.addEventListener('DOMContentLoaded', function () {
         card.addEventListener('click', handleClick)
     })
 
+    const carrinho = document.getElementById("addToCartButton");
+    carrinho.addEventListener("click", function() {
+        //funcion na pagina criaJsonGreal
+        geraTextIngrientes(dados.paes, dados.queijos, dados.molhos, dados.salada, dados.extra, dados.hamburger,valorPedido)
+    })
+
     function handleClick(){
         existingCheck = this.querySelector('.check'); //'this' é cada card selecionado
         let itemName = this.querySelector('.card-footer').textContent;
@@ -38,23 +44,12 @@ document.addEventListener('DOMContentLoaded', function () {
         cartItems.innerHTML = "";
         selectedItems.forEach(item=>{
             let list = document.createElement('li');
-            let itemName = document.createTextNode(item.name);
-            let inputQty = document.createElement('input');
+            let textContent= "1x "+item.name
+            let itemName = document.createTextNode(textContent);
             list.style.display = "flex";
             list.style.marginTop = "10px";
-            inputQty.value = 1;
-            inputQty.name = "increment";    
-            inputQty.classList = "increment";
-            inputQty.style.cursor = "pointer";
-            inputQty.style.height = '20px';
-            inputQty.style.width = "20px";
-            inputQty.style.marginLeft = "-10%";
-            inputQty.style.marginTop = "-8%";
-            inputQty.style.backgroundColor = "grey";
             list.appendChild(itemName); 
             cartItems.appendChild(list);
-            cartItems.appendChild(inputQty);
-
         })     
     }
     //função para informar a quantidade de produtos do carrinho 
@@ -79,13 +74,10 @@ document.addEventListener('DOMContentLoaded', function () {
             let input = card.querySelector('input[name="prices"]'); // Seleciona o input correspondente ao card clicado
             let price = parseFloat(input.value); // Obtém o valor do input convertido para número
             
-            
-
             if (card.classList.contains('selected')) { // Se o card já estiver selecionado, subtrai o valor do total
                 selectedItemsTotal -= price;  
             } else { // Se o card não estiver selecionado, ao ser clicado, será selecionado e adicionado o valor ao total
-                selectedItemsTotal += price;
-                
+                selectedItemsTotal += price;   
             }
 
             card.classList.toggle('selected'); // Adiciona ou remove a classe 'selected' do card
@@ -122,14 +114,5 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         })
     })
-    
 
-    let btn = document.querySelector('.btn-close')
-    btn.addEventListener('click', ()=>{
-        
-        if(btn.click){
-            checkout.style.display = 'none';
-            checkout.classList.toggle('visible');
-        }
-    })
 })
