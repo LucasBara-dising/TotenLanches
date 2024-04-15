@@ -1,0 +1,51 @@
+{
+  "valor_suco":8.90,
+  "valor_refri":5.90,
+  "valor_agua":4.00,
+
+  "sucos": [
+    {
+      "nome": "Suco de Laranja",
+      "imagem_url": "https://pedidos.nacanoa.com.br/wp-content/uploads/2020/09/Suco_Laranja-320x400.png"
+    },
+    {
+      "nome": "Suco de Limão",
+      "imagem_url": "https://pedidos.nacanoa.com.br/wp-content/uploads/2020/09/suco_limao.png"
+    },
+    {
+      "nome": "Suco de Abacaxi",
+      "imagem_url": "https://pedidos.nacanoa.com.br/wp-content/uploads/2020/09/sucoabacaxi.png"
+    },
+    {
+      "nome": "Suco de Uva",
+      "imagem_url": "https://pedidos.nacanoa.com.br/wp-content/uploads/2020/09/suco-de-uva-320x400.png"
+    }
+  ],
+  
+    "refrigerantes": [
+      {
+        "nome": "Coca-Cola",
+        "imagem_url": "https://static.clubeextra.com.br/img/uploads/1/801/12293801.jpeg"
+      },
+      {
+        "nome": "Guaraná Antarctica",
+        "imagem_url": "https://static.clubeextra.com.br/img/uploads/1/414/19804414.jpg"
+      },
+      {
+        "nome": "Fanta Laranja",
+        "imagem_url": "https://static.clubeextra.com.br/img/uploads/1/329/26981329.png"
+      },
+      {
+        "nome": "Sprite",
+        "imagem_url": "https://static.clubeextra.com.br/img/uploads/1/971/12856971.jpg"
+      }
+    ],
+    "agua": [
+      {
+        "nome": "Água Mineral Sem Gás",
+        "imagem_url": "https://imgs.extra.com.br/1564306560/1xg.jpg"
+      }
+    ]
+
+    
+}
