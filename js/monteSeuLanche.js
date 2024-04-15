@@ -8,39 +8,29 @@ let itensSelectHamburger=[]
 fetch('./json/sampleIngredintes.json').then((response) => {
 response.json().then((dados) => {
   //posso manipular o json aqui
-  const sizeJson = dados.paes.length
-  criaSlider("AddImgPao","btnLeftPao", "btnRightPao", "divImgPao", 
-  "infoTitlePao", "checkItemPao", itensSelectPao , dados.paes, sizeJson, 0,1)
+  //pao
+  criaSlider("Pao","AddImgPao","btnLeftPao", "btnRightPao", "divImgPao", 
+  "infoTitlePao","contItensPao", "boxItemPao","checkItemPao", itensSelectPao, dados.paes, 1)
 
   //queijos
-  const sizeJsonQueijos = dados.queijos.length
-  criaSlider("AddImgQueijos","btnLeftQueijos", "btnRightQueijos", "divImgQueijos", 
-  "infoTitleQueijos", "checkItemQueijos", itensSelectQueijos , dados.queijos, 
-  sizeJsonQueijos, 0,2)
+  criaSlider("Queijos", "AddImgQueijos","btnLeftQueijos", "btnRightQueijos", "divImgQueijos", 
+  "infoTitleQueijos","contItensQueijo", "boxItemQueijo", "checkItemQueijos", itensSelectQueijos, dados.queijos, 2)
 
   //Molhos
-  const sizeJsonMolhos = dados.molhos.length
-  criaSlider("AddImgMolhos","btnLeftMolhos", "btnRightMolhos", "divImgMolhos", 
-  "infoTitleMolhos", "checkItemMolhos", itensSelectMolhos , dados.molhos, 
-  sizeJsonMolhos, 0,2)
+  criaSlider("Molhos", "AddImgMolhos","btnLeftMolhos", "btnRightMolhos", "divImgMolhos", 
+  "infoTitleMolhos", "contItensMolhos", "boxItemMolhos", "checkItemMolhos", itensSelectMolhos , dados.molhos, 3)
 
   //Salada
-  const sizeJsonSalada = dados.salada.length
-  criaSlider("AddImgSalada","btnLeftSalada", "btnRightSalada", "divImgSalada", 
-  "infoTitleSalada", "checkItemSalada", itensSelectSalada , dados.salada, 
-  sizeJsonSalada, 0,3)
+  criaSlider("Salada", "AddImgSalada","btnLeftSalada", "btnRightSalada", "divImgSalada", 
+  "infoTitleSalada", "contItensSalada", "boxItemSalada", "checkItemSalada", itensSelectSalada , dados.salada, 3)
 
   //Extra
-  const sizeJsonExtra = dados.extra.length
-  criaSlider("AddImgExtra","btnLeftExtra", "btnRightExtra", "divImgExtra", 
-  "infoTitleExtra", "checkItemExtra", itensSelectExtra , dados.extra, 
-  sizeJsonExtra, 0,1)
+  criaSlider("Extra", "AddImgExtra","btnLeftExtra", "btnRightExtra", "divImgExtra", 
+  "infoTitleExtra", "contItensExtra", "boxItemExtra", "checkItemExtra", itensSelectExtra , dados.extra, 1)
 
   //Hamburger
-  const sizeJsonHamburger = dados.hamburger.length
-  criaSlider("AddImgHamburger","btnLeftHamburger", "btnRightHamburger", "divImgHamburger", 
-  "infoTitleHamburger", "checkItemHamburger", itensSelectHamburger , dados.hamburger, 
-  sizeJsonHamburger, 0,1)
+  criaSlider("Hamburger", "AddImgHamburger","btnLeftHamburger", "btnRightHamburger", "divImgHamburger", 
+  "infoTitleHamburger", "contItensHamburger","boxItemHamburger", "checkItemHamburger", itensSelectHamburger , dados.hamburger, 1)
 
   const btnOK = document.getElementById("btnOK");
   btnOK.addEventListener("click", function() {
@@ -65,7 +55,10 @@ response.json().then((dados) => {
   });
 })
 
-function criaSlider(divAddImg, btnLeft, btnRight, divImg, divTitle, imgMarkItem, arrayItemIngredient, objIngredient, sizeobjIngredient, currentImg, limiteItens){
+function criaSlider(categoria, divAddImg, btnLeft, btnRight, divImg, divTitle, contItens, boxItem, imgMarkItem, arrayItemIngredient, objIngredient, limiteItens, currentImg = 0){
+
+  var sizeobjIngredient = objIngredient.length
+
   //passa o lugar dos carrosel e onde vai receber a img e titulo
   showItem(divImg, divTitle, imgMarkItem, arrayItemIngredient, objIngredient, currentImg)
 
@@ -76,10 +69,10 @@ function criaSlider(divAddImg, btnLeft, btnRight, divImg, divTitle, imgMarkItem,
     addImgs.addEventListener("click", function() {
       if(arrayItemIngredient.includes(currentImg)==true){
         removeByElement(arrayItemIngredient,currentImg)
-        
       }else{
+
         //execeção para o pão
-        if(arrayItemIngredient==itensSelectPao && arrayItemIngredient.length>=limiteItens){
+        if(arrayItemIngredient.length>=1 && categoria=="Pao"){
           arrayItemIngredient=[]
         }
 
@@ -91,6 +84,10 @@ function criaSlider(divAddImg, btnLeft, btnRight, divImg, divTitle, imgMarkItem,
         arrayItemIngredient.push(currentImg)
       }
       checkItemSelect(arrayItemIngredient, currentImg, imgMarkItem)
+
+      geraItensSelect(objIngredient, arrayItemIngredient, boxItem)
+
+      checkLimit(arrayItemIngredient, limiteItens, 1.99, contItens)
     });
 
     //mecanica apra passar para o proximo a direita
@@ -100,7 +97,7 @@ function criaSlider(divAddImg, btnLeft, btnRight, divImg, divTitle, imgMarkItem,
         currentImg=0
       }
       showItem(divImg, divTitle, imgMarkItem,arrayItemIngredient, objIngredient, currentImg)
-        });
+    });
       
     //mecanica apra passar para o proximo a esquerda
     leftButton.addEventListener("click", function() {
@@ -114,6 +111,7 @@ function criaSlider(divAddImg, btnLeft, btnRight, divImg, divTitle, imgMarkItem,
 
 //recebe o item e mostra a img com o texto
 function showItem(divImg, divTitle, imgMarkItem, arrayItemIngredient, objIngredient, currentImg){
+  //img
   const singleImg = document.getElementById(divImg)
   singleImg.src = objIngredient[currentImg].imagem_url
 
@@ -121,6 +119,7 @@ function showItem(divImg, divTitle, imgMarkItem, arrayItemIngredient, objIngredi
   const infoTitle = document.getElementById(divTitle);
   infoTitle.innerHTML = objIngredient[currentImg].nome;
 
+  //checka se esta selecionado
   checkItemSelect(arrayItemIngredient, currentImg, imgMarkItem)
 }
 
@@ -144,5 +143,47 @@ function removeByElement(array, item){
   const index = array.indexOf(item);
   if (index > -1) { 
     array.splice(index, 1); 
+  }
+}
+
+function geraItensSelect(objIngredient, arrayItem, boxItemQueijo){
+  const listboxItens = document.getElementById(boxItemQueijo)
+  //limpa a div
+  listboxItens.innerHTML = "";
+  arrayItem.forEach(element => {
+    let list = document.createElement('p');
+    let textContent= objIngredient[element].nome
+    let itemName = document.createTextNode(textContent);
+    list.style.display = "flex";
+    list.style.marginTop = "10px";
+
+    let imgCkeck = document.createElement('img');
+    imgCkeck.src="imagens/check-mark.png"
+    imgCkeck.className="imgcheckItem"
+
+    list.appendChild(imgCkeck); 
+    list.appendChild(itemName); 
+
+    listboxItens.appendChild(list);
+  });
+}
+
+function checkLimit(arrayItem, limiteItens, valorExtra, contItens){
+  const contaItens = document.getElementById(contItens)
+  if(arrayItem.length>limiteItens){
+    contaItens.innerHTML="Ingredientes Extras"
+
+    let extra = document.createElement('p');
+    let txtextra = document.createTextNode("+R$" + valorExtra);
+    extra.className="fs-4  title-item-normal"
+
+    extra.appendChild(txtextra);
+    contaItens.appendChild(extra);
+
+    //mostra texto de extra e adiciona o valor extra ao total
+    let valorAMais = arrayItem.length-limiteItens*valorExtra
+  }
+  else{
+    contaItens.innerHTML="Escolha ate "+ (limiteItens-arrayItem.length)+ " opções"
   }
 }

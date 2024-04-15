@@ -77,7 +77,13 @@
   .title-item{
     color: var(--gray);
     font-weight: bold;
-    font-size: 1.8em;
+    font-size: 2em;
+  }
+
+  .title-item-normal{
+    color: var(--gray);
+    font-size: 2em;
+    margin-bottom: 0;
   }
 
   .imgCarrinho{

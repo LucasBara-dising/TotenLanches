@@ -92,11 +92,11 @@
     ],
     "hamburger": [
       {
-        "nome": "Alcatra",
+        "nome": "Hamburger Alcatra",
         "imagem_url": "https://t3.ftcdn.net/jpg/02/98/93/42/360_F_298934216_KzRuhZqScXdgxgtMhqFCaVYlrpqmiS8t.jpg"
       },
       {
-        "nome": "Tradicional",
+        "nome": "Hamburger Tradicional",
         "imagem_url": "https://previews.123rf.com/images/alexskp/alexskp2003/alexskp200300091/143499107-grilled-burger-meat-isolated-on-white.jpg"
       },
       {
@@ -108,7 +108,7 @@
         "imagem_url": "https://lojaqui.com.br/images/produtos/site/15569.jpg"
       },
       {
-        "nome": "",
+        "nome": "Sem Hamburger",
         "imagem_url": "https://img.freepik.com/vetores-gratis/sinal-de-proibicao-vermelha-nenhum-icone-de-aviso-ou-simbolo-de-parada-ilustracao-vetorial-de-perigo-de-seguranca-isolado_56104-912.jpg"
       }
     ]
