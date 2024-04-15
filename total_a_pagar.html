@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finalização de Pedido</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styleGeral.css">
+</head>
+<style>
+    #containerFinalizado{
+        top: 10%;
+        height: 90vh;
+    }
+</style>
+<body>
+    <!-- background -->
+    <div class="background">  
+    </div>
+    <!-- Fim background -->
+
+    
+    <!-- container -->
+    <div class="containerProdutos" id="containerFinalizado">
+        <div class="text-center">
+            <h2 class="font-weight-bold">Pedido Finalizido!!</h2>
+            <h4 class="mt-5">Mostre o código abaixo para realizar o pagamento</h4>
+            <h2 class="mt-5 fs-3 font-weight-bold">Pedido N° 5421787 </h2>
+            <div class="mt-4 size container">
+                <!-- Aqui teremos de gerar o QRCode automaticamente depois, sabe-se Deus como hahaha -->
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSojqE7ztWUYLgAOLfIp8OrWRqDI-43JplTC8XdCZ8L9g&s" alt="QRCode" class="img-fluid ">
+            </div>
+            <p id="dataAtual" class="fs-4 mt-3"></p>
+        </div>
+    </div>
+
+     <!-- footer total -->
+     <div class="fixed-bottom row" id="footerTotal">
+        <div class="col-6 text-start fs-2 fw-bold">Total</div>
+        <div class="col-6 text-end fs-2" id="txtTotal">R$:35</div>
+    </div>
+</div>
+</body>
+<script>
+    // Define a data atual
+    document.getElementById("dataAtual").innerText = new Date().toLocaleDateString();
+
+    // O código para calcular e exibir o total a ser pago será implementado aqui posteriormente
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.1/js/bootstrap.min.js"></script>
+</html>
