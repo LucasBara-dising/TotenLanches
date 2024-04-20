@@ -1,9 +1,3 @@
-let itensSelectPao=[]
-let itensSelectQueijos=[]
-let itensSelectMolhos=[]
-let itensSelectSalada=[]
-let itensSelectExtra=[]
-let itensSelectHamburger=[]
 
 fetch('./json/sampleIngredintes.json').then((response) => {
 response.json().then((dados) => {
@@ -30,7 +24,7 @@ response.json().then((dados) => {
 
   //Hamburger
   criaSlider("Hamburger", "AddImgHamburger","btnLeftHamburger", "btnRightHamburger", "divImgHamburger", 
-  "infoTitleHamburger", "contItensHamburger","boxItemHamburger", "checkItemHamburger", itensSelectHamburger , dados.hamburger, 1)
+  "infoTitleHamburger", "contItensHamburger","BoxItemHamburger", "checkItemHamburger", itensSelectHamburger , dados.hamburger, 1)
 
   const btnOK = document.getElementById("btnOK");
   btnOK.addEventListener("click", function() {
@@ -38,6 +32,9 @@ response.json().then((dados) => {
     btnOKModel.style.display="block"
     const txtTotal = document.getElementById("totalPrice");
     txtTotal.style.display="none"
+    //funcion na pagina criaJsonGeral
+    geraTextIngrientes(dados.paes, dados.queijos, dados.molhos, dados.salada, dados.extra, dados.hamburger,valorPedido)
+
     geraJson(dados.paes, dados.queijos, dados.molhos, dados.salada, dados.extra, dados.hamburger,valorPedido)
   });
 
@@ -78,7 +75,7 @@ function criaSlider(categoria, divAddImg, btnLeft, btnRight, divImg, divTitle, c
 
         //adiona valor extra para cada item a mais
         if(arrayItemIngredient.length>=limiteItens){  
-          valorPedido+=1.50
+          valorPedido+=1.90
           updateTotal(valorPedido)
         }
         arrayItemIngredient.push(currentImg)
@@ -139,12 +136,6 @@ function updateTotal(total){
   txtTotal.innerHTML="R$: "+total
 }
 
-function removeByElement(array, item){
-  const index = array.indexOf(item);
-  if (index > -1) { 
-    array.splice(index, 1); 
-  }
-}
 
 function geraItensSelect(objIngredient, arrayItem, boxItemQueijo){
   const listboxItens = document.getElementById(boxItemQueijo)
@@ -184,6 +175,6 @@ function checkLimit(arrayItem, limiteItens, valorExtra, contItens){
     let valorAMais = arrayItem.length-limiteItens*valorExtra
   }
   else{
-    contaItens.innerHTML="Escolha ate "+ (limiteItens-arrayItem.length)+ " opções"
+    contaItens.innerHTML="Escolha mais "+ (limiteItens-arrayItem.length)+ " opções"
   }
 }

@@ -21,13 +21,14 @@
     width: auto;
     height: 20vh;
     text-align: center;
+    margin-bottom: 15%;
   }
 
   .img-ingredient {
     width: auto;
     max-width: 50%;
     min-width: 50%;
-    height: 16vh;
+    height: 20vh;
     left: 25%;
     align-self: center;
     position: absolute;
@@ -62,7 +63,7 @@
   .info {
     width: 100%;
     position: absolute;
-    margin-top: 40%;
+    margin-top: 50%;
     left: 0;
     z-index: 1;
     color: var(--gray);

@@ -1,51 +1,59 @@
-let qtnSuc = 0
-let qtnRefri= 0
-let qtnAgua = 0
+let qtnGrande = 0
+let qtnMedio= 0
+let qtnPequeno = 0
+let qtnEspecial = 0
 let totalValor=0
 
-var valor_suco 
-var valor_refri
-var valor_agua
+var valor_grande 
+var valor_medio
+var valor_pequeno
+var valor_especial
 
 // ---- Seleção de itens, carrinho de compras e cálculo de valor ca compra -----------    
 document.addEventListener('DOMContentLoaded', function () {
-    fetch('./json/bebidasRepouse.json').then((response) => {
+    fetch('./json/acompanhamentoRepouse.json').then((response) => {
         response.json().then((dados) => {
           //posso manipular o json aqui
 
-        valor_suco = dados.valor_suco
-        valor_refri = dados.valor_refri
-        valor_agua = dados.valor_agua
+        valor_grande = dados.valor_grande
+        valor_medio = dados.valor_medio
+        valor_pequeno = dados.valor_pequeno
+        valor_especial = dados.valor_especial
     
-          for(i=0; i<dados.sucos.length; i++){
-            criaCard(dados.sucos, i, valor_suco, "conteinerSucos", "Suco")
+          for(i=0; i<dados.grande.length; i++){
+            criaCard(dados.grande, i, valor_grande, "conteinerGrande", "Grande")
           }
 
-          for(i=0; i<dados.refrigerantes.length; i++){
-            criaCard(dados.refrigerantes, i, valor_refri, "conteinerRefri", "Refrigerante")
+          for(i=0; i<dados.medio.length; i++){
+            criaCard(dados.medio, i, valor_medio, "conteinerMedio", "Medio")
           }
 
-          for(i=0; i<dados.agua.length; i++){
-            criaCard(dados.agua, i, valor_agua, "conteinerAgua", "Agua")
+          for(i=0; i<dados.pequeno.length; i++){
+            criaCard(dados.pequeno, i, valor_pequeno, "conteinerPequeno", "Pequeno")
+          }
+
+          for(i=0; i<dados.especial.length; i++){
+            criaCard(dados.especial, i, valor_especial, "conteinerEspecial", "Especial")
           }
         });
     })
 
     
-    QtnSelectedItems.set('Suco', 0);
-    QtnSelectedItems.set('Refrigerante', 0);
-    QtnSelectedItems.set('Agua', 0); 
+    QtnSelectedItems.set('Grande', 0);
+    QtnSelectedItems.set('Medio', 0);
+    QtnSelectedItems.set('Pequeno', 0); 
+    QtnSelectedItems.set('Especial', 0); 
 
     function criaCard(objItem, i, valor_item, conteiner, categoria){
         let box = document.createElement('div');
-        box.className="col-4 mt-3"
+        box.className="col-6 mt-3"
         box.id=objItem[i].nome
         
         let boxImg = document.createElement('div');
         boxImg.className="card-body"
   
         let img = document.createElement('img');
-        img.className="img-fluid"
+        img.className="img-batata"
         img.src=objItem[i].imagem_url
 
         let imgCkeck = document.createElement('img');
@@ -76,42 +84,51 @@ document.addEventListener('DOMContentLoaded', function () {
             imgCkeck.style.visibility="hidden"
             removeByElement(selectedItems, idBox)
             switch(categoria){
-                case "suco":
-                    qtnSuc--
-                    QtnSelectedItems.set(categoria, qtnSuc)
+                case "Grande":
+                    qtnGrande--
+                    QtnSelectedItems.set(categoria, qtnGrande)
                     break;
-                case "Refrigerante": 
-                    qtnRefri--
-                    QtnSelectedItems.set(categoria, qtnRefri)
+                case "Medio": 
+                    qtnMedio--
+                    QtnSelectedItems.set(categoria, qtnMedio)
                     break;
-                case "Agua":
-                    qtnAgua--
-                    QtnSelectedItems.set(categoria, qtnAgua)
+                case "Pequeno":
+                    qtnPequeno--
+                    QtnSelectedItems.set(categoria, qtnPequeno)
+                    break;
+                case "Especial":
+                    qtnEspecial--
+                    QtnSelectedItems.set(categoria, qtnEspecial)
                     break;
                 default:
-                    qtnSuc--
-                    QtnSelectedItems.set(categoria, qtnSuc)
+                    qtnGrande--
+                    QtnSelectedItems.set(categoria, qtnGrande)
             }
             
         }else{
             imgCkeck.style.visibility="visible"
             selectedItems.push(idBox)
             switch(categoria){
-                case "suco":
-                    qtnSuc++
-                    QtnSelectedItems.set(categoria, qtnSuc)
+                case "Grande":
+                    qtnGrande++
+                    console.log(qtnGrande)
+                    QtnSelectedItems.set(categoria, qtnGrande)
                     break;
-                case "Refrigerante": 
-                    qtnRefri++
-                    QtnSelectedItems.set(categoria, qtnRefri)
+                case "Medio": 
+                    qtnMedio++
+                    QtnSelectedItems.set(categoria, qtnMedio)
                     break;
-                case "Agua":
-                    qtnAgua++
-                    QtnSelectedItems.set(categoria, qtnAgua)
+                case "Pequeno":
+                    qtnPequeno++
+                    QtnSelectedItems.set(categoria, qtnPequeno)
+                    break;
+                case "Especial":
+                    qtnEspecial++
+                    QtnSelectedItems.set(categoria, qtnEspecial)
                     break;
                 default:
-                    qtnSuc++
-                    QtnSelectedItems.set(categoria, qtnSuc)
+                    qtnGrande++
+                    QtnSelectedItems.set(categoria, qtnGrande)
             }
         }
         saveBebida();
@@ -122,9 +139,11 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function total(){
-        return (valorPedido + QtnSelectedItems.get("Suco") * valor_suco) + (QtnSelectedItems.get("Refrigerante") * valor_refri) + (QtnSelectedItems.get("Agua") * valor_agua)
+        
+        return valorPedido + (QtnSelectedItems.get("Grande") * valor_grande) + (QtnSelectedItems.get("Medio") * valor_medio) + 
+            (QtnSelectedItems.get("Pequeno") * valor_pequeno) + (QtnSelectedItems.get("Especial") * valor_especial)
     }
- 
+
     // Adiciona um evento de clique ao botão 'Add ao Carrinho'
     document.getElementById('addToCartButton').addEventListener('click', () => {
         // Atualiza o texto dentro do elemento totalPrice com o total dos itens selecionados
@@ -136,7 +155,7 @@ document.addEventListener('DOMContentLoaded', function () {
 fetch('./json/sampleIngredintes.json').then((response) => {
         response.json().then((dados) => {
         //posso manipular o json aqui
-    
+
         const carrinho = document.getElementById("addToCartButton");
         carrinho.addEventListener("click", function() {
             //funcion na pagina criaJsonGreal

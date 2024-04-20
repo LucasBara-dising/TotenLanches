@@ -31,6 +31,13 @@
                     
                 </p>
             </p>
+
+            <p class="carrinhoTitle">
+                Acompanhamento
+                <p class="fs-5 ps-4" id="cartItemsAcompanhamento">
+                    
+                </p>
+            </p>
             </div>
             <div class="modal-footer">
                 <p class="carrinhoTitle text-center" id="totalPrice">Total: R$22.99</p>
@@ -50,10 +57,10 @@
             </a>
             <a href="bebidas.html" class="col-4">
                 <img class="iconCategoria" src="imagens/refrigerante.png" alt="">
-                <div class="barra"></div>
             </a>
             <a href="acompanhamento.html" class="col-4">
                 <img class="iconCategoria" src="imagens/batatas-fritas.png" alt="">
+                <div class="barra"></div>
             </a>
         </div>
     </div>
@@ -61,50 +68,66 @@
 
     <!-- container -->
     <div class="containerProdutos">
-        <p class="title-page fs-1 fw-bold text-center">Escolha sua bebida</p>
+        <p class="title-item fs-1 fw-bold text-center">Escolha seu acompanhamento</p>
 
-    <!-- --------- SUCOS NATURAIS -->
+    <!-- --------- Grande -->
     <div class="container mt-2">
         <p class="title-item">
-            Sucos Naturais de 500ml 
-            <p class="fs-3">R$8.90</p>
+            Grande
+            <p class="fs-3">R$12.90</p>
           </p>
 
-        <div class="row gx-5" id="conteinerSucos">
-        </div>
-        
+        <div class="row gx-5" id="conteinerGrande">
+        </div>    
     </div>
 
-       <!-- -------------- REFRIGERANTES ---------------->
+       <!-- -------------- Medio ---------------->
     <div class="container mt-3" >
         <p class="title-item">
-            Refrigerantes 
-            <p class="fs-5">R$5.90</p>
+            Medio 
+            <p class="fs-5">R$10.90</p>
           </p>
 
-        <div class="row gx-5" id="conteinerRefri">
+        <div class="row gx-5" id="conteinerMedio">
         
         </div>
         
     </div>
 
 
-    <!-- -------------- ÁGUA ---------------->
+    <!-- -------------- Pequeno ---------------->
     <div class="container mt-5">
         <p class="title-item">
-            Água 500ml 
-            <p class="fs-5">R$4.00</p>
+            Pequeno
+            <p class="fs-5">R$7.90</p>
         </p>
 
-        <div class="row gx-5" id="conteinerAgua">
+        <div class="row gx-5" id="conteinerPequeno">
 
         </div>
     </div>
+
+     <!-- -------------- Especial ---------------->
+     <div class="container mt-5">
+        <p class="title-item">
+            Especial
+            <p class="fs-5">R$15.90</p>
+        </p>
+
+        <div class="row gx-5" id="conteinerEspecial">
+
+        </div>
+    </div>
+
 
     <!-- Bnt ok -->
     <div class="text-center mt-5">
-        <a href="./acompanhamento.html">
-            <button type="button" class="btn fw-bold" id="btnOK">OK</button>
+        <a href="./total_a_pagar.html">
+            <button type="button" class="btn fw-bold" id="btnOK">Finalziar</button>
+        </a>
+
+        <a href="./montaLanche.html">
+            <button type="button" class="btn fw-bold" id="btnDenovo">Mais um</button>
         </a>
     </div>
     
@@ -119,7 +142,7 @@
 </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.1/js/bootstrap.min.js"></script>
-    <script src="js/bebidas.js"></script>
+    <script src="js/acompanhamento.js"></script>
     <script src="js/criaJsonGeral.js"></script>
 </body>
 </html>
