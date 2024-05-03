@@ -1,4 +1,3 @@
-let valorPedido=22.99
 
 let itensSelectPao=[]
 let itensSelectQueijos=[]
@@ -10,20 +9,6 @@ let itensSelectHamburger=[]
 // Array para armazenar os itens selecionados pelo usuário
 let selectedItems = []
 let QtnSelectedItems = new Map();
-
-localStorage.setItem("itensSelectPao", itensSelectPao);
-localStorage.setItem("itensSelectQueijos", itensSelectQueijos);
-localStorage.setItem("itensSelectMolhos", itensSelectMolhos);
-localStorage.setItem("itensSelectSalada", itensSelectSalada);
-localStorage.setItem("itensSelectExtra", itensSelectExtra);
-localStorage.setItem("itensSelectHamburger", itensSelectHamburger);
-
-
-localStorage.setItem("selectedItems", selectedItems);
-localStorage.setItem("QtnSelectedItems", QtnSelectedItems);
-
-localStorage.setItem("valorPedido", valorPedido);
-
 
 //le todos os itens selecionados
 function geraTextIngrientes(objPaes, objQueijos, objMolhos, objSaladas, objExtra, objHamburger, total){
@@ -45,7 +30,7 @@ function geraTextIngrientes(objPaes, objQueijos, objMolhos, objSaladas, objExtra
     lancheIngredintes.innerHTML=textIngred
 
     console.log(selectedItems)
-    saveBebida()
+    saveNoCarrinho("Bebida")
   }
   
   function geraJson(objPaes, objQueijos, objMolhos, objSaladas, objExtra, objHamburger, total){
@@ -56,6 +41,8 @@ function geraTextIngrientes(objPaes, objQueijos, objMolhos, objSaladas, objExtra
     let salada= []
     let extra= []
     let hamburger= []
+    let bebida= selectedBebidas
+    let acompanhamento= selectedAcompanhamento
   
     //gera itens
     geraItensJson(itensSelectPao, pao, objPaes)
@@ -76,6 +63,8 @@ function geraTextIngrientes(objPaes, objQueijos, objMolhos, objSaladas, objExtra
       salada,
       extra,
       hamburger,
+      bebida,
+      acompanhamento
     }];
   
     // converting array pedido para JSON
@@ -94,23 +83,6 @@ function geraTextIngrientes(objPaes, objQueijos, objMolhos, objSaladas, objExtra
      arraySelect.forEach(element=>{
       arrayIngredient.push(objIngredient[element].nome)
     });
-  }
-
-   // função para guardar os itens (nomes) no carrinho 
-   function saveBebida(){
-    let cartItems = document.getElementById('cartItems')
-    // Limpa o conteúdo atual do carrinho para não ficar com itens duplicados
-    cartItems.innerHTML = "";
-    console.log(selectedItems)
-    selectedItems.forEach(item=>{
-        let list = document.createElement('li');
-        let textContent= "1x "+item
-        let itemName = document.createTextNode(textContent);
-        list.style.display = "flex";
-        list.style.marginTop = "10px";
-        list.appendChild(itemName); 
-        cartItems.appendChild(list);
-    })     
   }
 
   function removeByElement(array, item){

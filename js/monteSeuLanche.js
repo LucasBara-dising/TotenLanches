@@ -26,19 +26,21 @@ response.json().then((dados) => {
   criaSlider("Hamburger", "AddImgHamburger","btnLeftHamburger", "btnRightHamburger", "divImgHamburger", 
   "infoTitleHamburger", "contItensHamburger","BoxItemHamburger", "checkItemHamburger", itensSelectHamburger , dados.hamburger, 1)
 
-  const btnOK = document.getElementById("btnOK");
+  const btnOK = document.getElementById("btnOKLanche");
   btnOK.addEventListener("click", function() {
     const btnOKModel = document.getElementById("btnOKModel");
     btnOKModel.style.display="block"
     const txtTotal = document.getElementById("totalPrice");
     txtTotal.style.display="none"
+    $('.foo').openCarrinho();
+
     //funcion na pagina criaJsonGeral
     geraTextIngrientes(dados.paes, dados.queijos, dados.molhos, dados.salada, dados.extra, dados.hamburger,valorPedido)
 
     geraJson(dados.paes, dados.queijos, dados.molhos, dados.salada, dados.extra, dados.hamburger,valorPedido)
   });
 
-  const carrinho = document.getElementById("addToCartButton");
+  const carrinho = document.getElementById("btn-open-carrinho");
   carrinho.addEventListener("click", function() {
     const btnOKModel = document.getElementById("btnOKModel");
     btnOKModel.style.display="none"
@@ -133,12 +135,12 @@ function checkItemSelect(arrayItem, idIngredient,checkItem){
 //atualiza o total
 function updateTotal(total){
   const txtTotal = document.getElementById("txtTotal")
-  txtTotal.innerHTML="R$: "+total
+  txtTotal.innerHTML="R$: "+total.toFixed(2)
 }
 
 
-function geraItensSelect(objIngredient, arrayItem, boxItemQueijo){
-  const listboxItens = document.getElementById(boxItemQueijo)
+function geraItensSelect(objIngredient, arrayItem, boxItem){
+  const listboxItens = document.getElementById(boxItem)
   //limpa a div
   listboxItens.innerHTML = "";
   arrayItem.forEach(element => {
