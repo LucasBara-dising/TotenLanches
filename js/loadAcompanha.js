@@ -1,17 +1,4 @@
 let valorPedido=22.99
-
-//-------------Bebida----------------
-let selectedBebidas = []
-let QtnSelectedBebidas = new Map();
-
-QtnSelectedBebidas.set('Suco', 0);
-QtnSelectedBebidas.set('Refrigerante', 0);
-QtnSelectedBebidas.set('Agua', 0); 
-
-let qtnSuc = 0
-let qtnRefri= 0
-let qtnAgua = 0
-
 //---------------Acompanhamento-----------------
 let selectedAcompanhamento = []
 let QtnSelectedAcompanhamento = new Map();
@@ -26,31 +13,17 @@ let qtnMedio= 0
 let qtnPequeno = 0
 let qtnEspecial = 0
 
+//valores dos combos
+let valor_grande_combo = 2.90
+let valor_medio_combo = 0
+let valor_pequeno_combo = 0
+let valor_especial_combo = 5.90
+
+let selectedCombo = new Map();
+let selectedComboObj =[]
+
 
 document.addEventListener('DOMContentLoaded', function () {
-    //Bebida
-    fetch('./json/bebidasRepouse.json').then((response) => {
-        response.json().then((dados) => {
-          //posso manipular o json aqui
-
-        valor_suco = dados.valor_suco
-        valor_refri = dados.valor_refri
-        valor_agua = dados.valor_agua
-    
-          for(i=0; i<dados.sucos.length; i++){
-            criaCard(dados.sucos, i, valor_suco, "conteinerSucos", "Suco", "bebida")
-          }
-
-          for(i=0; i<dados.refrigerantes.length; i++){
-            criaCard(dados.refrigerantes, i, valor_refri, "conteinerRefri", "Refrigerante", "bebida")
-          }
-
-          for(i=0; i<dados.agua.length; i++){
-            criaCard(dados.agua, i, valor_agua, "conteinerAgua", "Agua", "bebida")
-          }
-        });
-    })
-
     //acompanhamento
     fetch('./json/acompanhamentoRepouse.json').then((response) => {
         response.json().then((dados) => {
@@ -80,7 +53,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 })
 
-
 function criaCard(objItem, i, valor_item, conteiner, categoria, tipo){
     let box = document.createElement('div');
     box.className= tipo=="bebida" ?"col-4 mt-3" : "col-6 mt-3"
@@ -90,7 +62,7 @@ function criaCard(objItem, i, valor_item, conteiner, categoria, tipo){
     boxImg.className="card-body"
 
     let img = document.createElement('img');
-    img.className= tipo=="bebida" ? "img-fluid" : "img-batata"
+    img.className= tipo=="acompanhamento" ? "img-batata" : "img-fluid"
     img.src=objItem[i].imagem_url
 
     let imgCkeck = document.createElement('img');
@@ -106,17 +78,33 @@ function criaCard(objItem, i, valor_item, conteiner, categoria, tipo){
     conteinerItem.appendChild(box)
 
     box.onclick=function(){ 
-        if(tipo=="bebida"){
-            checkItemForBebida(this.id, imgCkeck, categoria, valor_item)
-        }else{
-            checkItemForAcompanhamento(this.id, imgCkeck, categoria, valor_item)
+        switch(tipo){
+            case "bebida": 
+                checkItemForBebida(this.id, imgCkeck, categoria) 
+                break;
+            case "acompanhamento": 
+                checkItemForAcompanhamento(this.id, imgCkeck, categoria)
+                break;
+            case "combo": 
+                checkItemForCombo(this.id, imgCkeck, objItem[i], valor_item)
+                break;
+        }
+
+        let tipoPedido=""
+
+        if (window.location.pathname=="/montaLanche.html"){
+            tipoPedido="montaLanche"
+        }
+
+        if (window.location.pathname=="/combos.html"){
+            tipoPedido="combo"
         }
 
         let txtTotalPriceFooter = document.getElementById('txtTotal'); //elemento onde será exibido o preço total
-        txtTotalPriceFooter.textContent = "R$: " + total().toFixed(2);
+        txtTotalPriceFooter.textContent = "R$: " + total(tipoPedido).toFixed(2);
 
         let totalPriceCarrinho = document.getElementById('totalPrice'); //elemento onde será exibido o preço total
-        totalPriceCarrinho.textContent = "Total R$ " + total().toFixed(2);
+        totalPriceCarrinho.textContent = "Total R$ " + total(tipoPedido).toFixed(2);
     }
 
     box.appendChild(boxImg)
@@ -124,6 +112,13 @@ function criaCard(objItem, i, valor_item, conteiner, categoria, tipo){
     boxImg.appendChild(imgCkeck)
 
     box.appendChild(textItem)
+
+    if(tipo=="combo"){
+        let precoItem = document.createElement('H6');
+        precoItem.className="card-footer mt-3 text-center"
+        precoItem.innerHTML= "R$: "+objItem[i].valor
+        box.appendChild(precoItem)
+    }
 }
 
 function checkItemForBebida(idBox, imgCkeck, categoria){
@@ -205,7 +200,6 @@ function checkItemForAcompanhamento(idBox, imgCkeck, categoria){
         switch(categoria){
             case "Grande":
                 qtnGrande++
-                console.log(qtnGrande)
                 QtnSelectedAcompanhamento.set(categoria, qtnGrande)
                 break;
             case "Medio": 
@@ -228,17 +222,48 @@ function checkItemForAcompanhamento(idBox, imgCkeck, categoria){
     saveNoCarrinho("Acompanhamento")
 }
 
+function checkItemForCombo(idBox, imgCkeck, objItem, valor_item){
+    if(selectedCombo.has(idBox)==true){
+        imgCkeck.style.visibility="hidden"
+        selectedCombo.delete(idBox);
+        removeByElement(selectedComboObj, objItem)
+    }else{
+        imgCkeck.style.visibility="visible"
+        selectedCombo.set(idBox, valor_item);
+        selectedComboObj.push(objItem)
+    }
+    saveNoCarrinho("Hambuerger");
+}
+
 
  // função para guardar os itens (nomes) no carrinho 
  function saveNoCarrinho(tipo){
-    let cartItems = document.getElementById(tipo=="Bebida" ? "cartItemsBebida" : "cartItemsAcompanhamento")
-    let selectedItems = tipo=="Bebida" ? selectedBebidas : selectedAcompanhamento
+    let tipoSelect
+    let selectedItems
+    
+    switch(tipo){
+        case "Bebida": 
+            tipoSelect= "cartItemsBebida"
+            selectedItems = selectedBebidas
+            break;
+        case "Acompanhamento": 
+            tipoSelect = "cartItemsAcompanhamento"
+            selectedItems = selectedAcompanhamento
+            break;
+        case "Hambuerger": 
+            tipoSelect = "lancheIngredintes"
+            selectedItems = selectedCombo
+            break;
+    }
+
+    let cartItems = document.getElementById(tipoSelect)
+
     // Limpa o conteúdo atual do carrinho para não ficar com itens duplicados
     cartItems.innerHTML = "";
-    console.log(selectedItems)
-    selectedItems.forEach(item=>{
+    
+    selectedItems.forEach((item,key)=>{
         let list = document.createElement('li');
-        let textContent= "1x "+item
+        let textContent =  tipo=="Hambuerger" ? "1x "+ key : "1x "+item
         let itemName = document.createTextNode(textContent);
         list.style.display = "flex";
         list.style.marginTop = "10px";
@@ -247,10 +272,29 @@ function checkItemForAcompanhamento(idBox, imgCkeck, categoria){
     })     
   }
 
-  function total(){
-    return valorPedido + (QtnSelectedBebidas.get("Suco") * valor_suco) + (QtnSelectedBebidas.get("Refrigerante") * valor_refri) + 
-        (QtnSelectedBebidas.get("Agua") * valor_agua)
-        + (QtnSelectedAcompanhamento.get("Grande") * valor_grande) + (QtnSelectedAcompanhamento.get("Medio") * valor_medio) + 
-        (QtnSelectedAcompanhamento.get("Pequeno") * valor_pequeno) + (QtnSelectedAcompanhamento.get("Especial") * valor_especial)
+  function total(tipo){
+    if(tipo=="combo"){
+        let somaCombo = 0;
+
+        selectedCombo.forEach(value => {
+            somaCombo += value;
+        });
+
+        return somaCombo + (QtnSelectedBebidas.get("Suco") * valor_suco_combo) + 
+            (QtnSelectedBebidas.get("Refrigerante") * valor_refri_combo) + 
+            (QtnSelectedBebidas.get("Agua") * valor_agua_combo)+ 
+            (QtnSelectedAcompanhamento.get("Grande") * valor_grande_combo) + 
+            (QtnSelectedAcompanhamento.get("Medio") * valor_medio_combo) + 
+            (QtnSelectedAcompanhamento.get("Pequeno") * valor_pequeno_combo) + 
+            (QtnSelectedAcompanhamento.get("Especial") * valor_especial_combo)
+    }else{
+        return valorPedido + (QtnSelectedBebidas.get("Suco") * valor_suco) + 
+            (QtnSelectedBebidas.get("Refrigerante") * valor_refri) + 
+            (QtnSelectedBebidas.get("Agua") * valor_agua)+ 
+            (QtnSelectedAcompanhamento.get("Grande") * valor_grande) + 
+            (QtnSelectedAcompanhamento.get("Medio") * valor_medio) + 
+            (QtnSelectedAcompanhamento.get("Pequeno") * valor_pequeno) + 
+            (QtnSelectedAcompanhamento.get("Especial") * valor_especial)
+    }
 }
 

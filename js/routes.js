@@ -100,6 +100,16 @@
     $('.foo').openAcompanhamento();
   });
 
+  $("#btnOKBebida").click(function() {
+    $('.foo').closeBebida(); 
+    $('.foo').openAcompanhamento();
+  });
+
+  $("#btnOKCombo").click(function() {
+    $('.foo').closoeHamburger(); 
+    $('.foo').openBebida();
+  });
+
   $("#btnOKFinal").click(function() {
     const btnConfirmaModel = document.getElementById("btnOKConfirma");
     btnConfirmaModel.style.display="block"
@@ -110,11 +120,10 @@
     $('.foo').openCarrinho();
   });
 
-  $("#btnOKConfirma").click(function() {
-    $('.foo').closeAcompanhamento(); 
-    $('.foo').closeCarrinho(); 
-    location.replace("total_a_pagar.html")
-    //window.open("total_a_pagar.html")
-  });
+  $("#btnOKConfirma").click(function(){
+    geraJsonFromCombo()
+  })
+
+ 
   
 

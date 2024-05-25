@@ -1,11 +1,11 @@
 
-let itensSelectPao=[]
-let itensSelectQueijos=[]
-let itensSelectMolhos=[]
-let itensSelectSalada=[]
-let itensSelectExtra=[]
-let itensSelectHamburger=[]
-
+let itensSelectPao=[0]
+let itensSelectQueijos=[0,2]
+let itensSelectMolhos=[2]
+let itensSelectSalada=[0]
+let itensSelectExtra=[0]
+let itensSelectHamburger=[0]
+let pedido
 // Array para armazenar os itens selecionados pelo usuário
 let selectedItems = []
 let QtnSelectedItems = new Map();
@@ -32,6 +32,10 @@ function geraTextIngrientes(objPaes, objQueijos, objMolhos, objSaladas, objExtra
     console.log(selectedItems)
     saveNoCarrinho("Bebida")
   }
+
+  function gerajsonComBebida(){
+    console.log(selectedCombo)
+  }
   
   function geraJson(objPaes, objQueijos, objMolhos, objSaladas, objExtra, objHamburger, total){
     //inicia arrays
@@ -52,7 +56,8 @@ function geraTextIngrientes(objPaes, objQueijos, objMolhos, objSaladas, objExtra
     geraItensJson(itensSelectExtra, extra, objExtra)
     geraItensJson(itensSelectHamburger, hamburger, objHamburger)
   
-    let pedido = [{
+    
+    pedido = [{
       "Id":2,  
       "firstName": "Maria",
       "preco": total,
@@ -66,6 +71,32 @@ function geraTextIngrientes(objPaes, objQueijos, objMolhos, objSaladas, objExtra
       bebida,
       acompanhamento
     }];
+
+    console.log(pedido)
+  
+    // converting array pedido para JSON
+    const pedidoJSON = JSON.stringify(pedido, null, 2);
+    console.log(pedidoJSON)
+  }
+
+  function geraJsonFromCombo(){
+    let combo= selectedComboObj
+    let bebida= selectedBebidas
+    let acompanhamento= selectedAcompanhamento
+    
+    let totalPedio=total("combo")
+
+    pedido = [{
+      "Id":2,  
+      "firstName": "Maria",
+      "preco": totalPedio,
+      "status": "não pago",
+      combo,
+      bebida,
+      acompanhamento
+    }];
+
+    console.log(pedido)
   
     // converting array pedido para JSON
     const pedidoJSON = JSON.stringify(pedido, null, 2);

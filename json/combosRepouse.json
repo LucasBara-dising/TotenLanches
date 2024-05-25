@@ -1,0 +1,81 @@
+{
+  "combo_Hamburguer": [
+    {
+      "nome": "Hamburguer Simples",
+      "valor": 20.90,
+      "imagem_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7rMZXZknBcgM3sYWOrUUev1wy6BfLcUk7fscZwTR0NQ&s",
+      "pao": "Pão Com Gergelim",
+      "queijo":[
+        {"nome":"Queijo Prato"},
+        {"nome":"Queijo Cheddar"}
+      ],
+      "molho":[
+        {"nome":"Maionese"},
+        {"nome":"Ketchup"}
+      ],
+      "salada":[
+        {"nome":"Tomate"},
+        {"nome":"Alface"},
+        {"nome":"Cebola Roxa"}
+      ],
+      "extra":[
+        {"nome":"Bacon"}
+        ],
+      "hamburger":[
+          {"nome":"Hamburger Tradicional"}
+      ]
+    }
+  ],
+  
+    "combo_Salsicha": [
+      {
+        "nome": "Dogão",
+        "valor": 20.90,
+        "imagem_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7rMZXZknBcgM3sYWOrUUev1wy6BfLcUk7fscZwTR0NQ&s",
+        "pao": "Baguete",
+        "queijo":[
+          {"nome":"Queijo Cheddar"},
+          {"nome":"Queijo parmesão"}
+        ],
+        "molho":[
+          {"nome":"Mostarda"},
+          {"nome":"Ketchup"},
+          {"nome":"Barbecue"}
+        ],
+        "salada":[
+          {"nome":"Alface"},
+          {"nome":"Cebola Roxa"}
+        ],
+        "extra":[
+          {"nome": "Bacon"}
+        ],
+        "hamburger":[
+            {"nome":"Salsicha"}
+        ]
+      }
+    ],
+
+    "combo_Veg": [
+      {
+        "nome": "Hamburguer Vegetariano",
+        "valor": 20.90,
+        "imagem_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7rMZXZknBcgM3sYWOrUUev1wy6BfLcUk7fscZwTR0NQ&s",
+        "pao": "Pão Com Gergelim",
+        "queijo":[],
+        "molho":[
+          {"nome":"Mostarda"},
+          {"nome":"Ketchup"}
+        ],
+        "salada":[
+          {"nome":"Tomate"},
+          {"nome":"Alface"},
+          {"nome":"Cebola Roxa"},
+          {"nome":"Pepino"}
+        ],
+        "extra":[],
+        "hamburger":[
+            {"nome":"Sem Hamburger"}
+        ]
+      }
+    ]
+}
