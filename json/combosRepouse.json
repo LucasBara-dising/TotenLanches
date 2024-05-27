@@ -24,6 +24,56 @@
       "hamburger":[
           {"nome":"Hamburger Tradicional"}
       ]
+    },
+    {
+      "nome": "Hamburguer Completo",
+      "valor": 29.90,
+      "imagem_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7rMZXZknBcgM3sYWOrUUev1wy6BfLcUk7fscZwTR0NQ&s",
+      "pao": "Baguete",
+      "queijo":[
+        {"nome":"Queijo Prato"},
+        {"nome":"Queijo parmesão"},
+        {"nome":"Queijo Cheddar"}
+      ],
+      "molho":[
+        {"nome":"Maionese"},
+        {"nome":"Ketchup"},
+        {"nome":"Barbecue"}
+      ],
+      "salada":[
+        {"nome":"Tomate"},
+        {"nome":"Alface"},
+        {"nome":"Cebola Roxa"}
+      ],
+      "extra":[
+        {"nome":"Bacon"},
+        {"nome":"Ovo"},
+        {"nome":"Presunto"}
+      ],
+      "hamburger":[
+        {"nome":"Hamburger Tradicional"}
+      ]
+    },
+    {
+      "nome": "Hamburguer Light",
+      "valor": 18.90,
+      "imagem_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7rMZXZknBcgM3sYWOrUUev1wy6BfLcUk7fscZwTR0NQ&s",
+      "pao": "Pão Com Gergelim",
+      "queijo":[
+        {"nome":"Queijo Prato"}
+      ],
+      "molho":[
+        {"nome":"Maionese"}
+      ],
+      "salada":[
+        {"nome":"Alface"},
+        {"nome":"Tomate"}
+      ],
+      "extra":[
+      ],
+      "hamburger":[
+        {"nome":"Hamburger Tradicional"}
+      ]
     }
   ],
   
@@ -52,6 +102,25 @@
         "hamburger":[
             {"nome":"Salsicha"}
         ]
+      },
+      {
+        "nome": "Mini Dogão",
+        "valor": 10.90,
+        "imagem_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7rMZXZknBcgM3sYWOrUUev1wy6BfLcUk7fscZwTR0NQ&s",
+        "pao": "Baguete",
+        "queijo":[
+        ],
+        "molho":[
+          {"nome":"Mostarda"}
+        ],
+        "salada":[
+          {"nome":"Alface"}
+        ],
+        "extra":[
+        ],
+        "hamburger":[
+          {"nome":"Salsicha"}
+        ]
       }
     ],
 
@@ -75,6 +144,24 @@
         "extra":[],
         "hamburger":[
             {"nome":"Sem Hamburger"}
+        ]
+      },
+      {
+        "nome": "Sanduíche Vegano Simples",
+        "valor": 15.90,
+        "imagem_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7rMZXZknBcgM3sYWOrUUev1wy6BfLcUk7fscZwTR0NQ&s",
+        "pao": "Pão Com Gergelim",
+        "queijo":[],
+        "molho":[
+          {"nome":"Mostarda"}
+        ],
+        "salada":[
+          {"nome":"Alface"},
+          {"nome":"Tomate"}
+        ],
+        "extra":[],
+        "hamburger":[
+          {"nome":"Sem Hamburger"}
         ]
       }
     ]
