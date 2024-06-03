@@ -1,10 +1,10 @@
 
-let itensSelectPao=[0]
-let itensSelectQueijos=[0,2]
-let itensSelectMolhos=[2]
-let itensSelectSalada=[0]
-let itensSelectExtra=[0]
-let itensSelectHamburger=[0]
+let itensSelectPao=[]
+let itensSelectQueijos=[]
+let itensSelectMolhos=[]
+let itensSelectSalada=[]
+let itensSelectExtra=[]
+let itensSelectHamburger=[]
 let pedido
 // Array para armazenar os itens selecionados pelo usuário
 let selectedItems = []

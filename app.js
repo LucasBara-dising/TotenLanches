@@ -3,6 +3,8 @@ const express =  require('express');
 const app = express();
 const path = require('path');
 
+const credencial = require('./credencial.js');
+
 app.get('/', (req, res)=>{
     res.render('index');
 })
@@ -28,20 +30,14 @@ app.post('/', express.urlencoded({extended:true}), (req, res)=>{
 const { MongoClient } = require("mongodb");
 
 //conexão
-const username = encodeURIComponent("lucasbarauna098");
-const password = encodeURIComponent("098Bara");
-let uri =`mongodb+srv://${username}:${password}@cluster0.mzlrytu.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`
+let uri =`mongodb+srv://${credencial.username}:${credencial.password}@cluster0.mzlrytu.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`
  
 // Replace the following with your Atlas connection string
 const client = new MongoClient(uri);
                  
-//criar uma thhend onde cira o json e dpois chama a imprtaçaõ
-
+//criar uma thend onde cira o json e dpois chama a imprtação
 async function run(json) {
-  console.log("Abriu banco")
-  
   console.log("--------No app.js--------")
-  console.log("Json")
   console.log(json);
 
     try {
@@ -55,14 +51,6 @@ async function run(json) {
 
          // Insert o pedido na coleção       
          const p = await col.insertMany(json);
-
-         // Find the document
-         const filter = { "firstName": "Maria" };
-         const document = await col.findOne(filter);
-
-         // Print results
-         console.log("Document found:\n" + JSON.stringify(document));
-
         } catch (err) {
         //mensagem de erro
          console.log(err.stack);
@@ -87,8 +75,8 @@ app.listen(PORT, ()=>{
     console.log("Escutando na porta", PORT);
 })
 
- //npms nessarios
- //ejs
+//npms nessarios
+//ejs
 //  expres
 //  jsdom
 //  mongodb
