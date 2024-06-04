@@ -1,0 +1,168 @@
+{
+  "combo_Hamburguer": [
+    {
+      "nome": "Hamburguer Simples",
+      "valor": 20.90,
+      "imagem_url": "https://s3-sa-east-1.amazonaws.com/deliveryon-uploads/products/traillerdoserginho/34_55c2ab9b72a92.png",
+      "pao": "Pão Com Gergelim",
+      "queijo":[
+        {"nome":"Queijo Prato"},
+        {"nome":"Queijo Cheddar"}
+      ],
+      "molho":[
+        {"nome":"Maionese"},
+        {"nome":"Ketchup"}
+      ],
+      "salada":[
+        {"nome":"Tomate"},
+        {"nome":"Alface"},
+        {"nome":"Cebola Roxa"}
+      ],
+      "extra":[
+        {"nome":"Bacon"}
+        ],
+      "hamburger":[
+          {"nome":"Hamburger Tradicional"}
+      ]
+    },
+    {
+      "nome": "Hamburguer Completo",
+      "valor": 29.90,
+      "imagem_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7rMZXZknBcgM3sYWOrUUev1wy6BfLcUk7fscZwTR0NQ&s",
+      "pao": "Baguete",
+      "queijo":[
+        {"nome":"Queijo Prato"},
+        {"nome":"Queijo parmesão"},
+        {"nome":"Queijo Cheddar"}
+      ],
+      "molho":[
+        {"nome":"Maionese"},
+        {"nome":"Ketchup"},
+        {"nome":"Barbecue"}
+      ],
+      "salada":[
+        {"nome":"Tomate"},
+        {"nome":"Alface"},
+        {"nome":"Cebola Roxa"}
+      ],
+      "extra":[
+        {"nome":"Bacon"},
+        {"nome":"Ovo"},
+        {"nome":"Presunto"}
+      ],
+      "hamburger":[
+        {"nome":"Hamburger Tradicional"}
+      ]
+    },
+    {
+      "nome": "Hamburguer Light",
+      "valor": 18.90,
+      "imagem_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSENc2oYBTVzTrK3_ikcM6jqQgarGflPa2UNlljceK0MX58pOfY9sU6nJubkYe3BZqIX3A&usqp=CAU",
+      "pao": "Pão Com Gergelim",
+      "queijo":[
+        {"nome":"Queijo Prato"}
+      ],
+      "molho":[
+        {"nome":"Maionese"}
+      ],
+      "salada":[
+        {"nome":"Alface"},
+        {"nome":"Tomate"}
+      ],
+      "extra":[
+      ],
+      "hamburger":[
+        {"nome":"Hamburger Tradicional"}
+      ]
+    }
+  ],
+  
+    "combo_Salsicha": [
+      {
+        "nome": "Dogão",
+        "valor": 16.90,
+        "imagem_url": "https://static.vecteezy.com/system/resources/previews/027/144/961/original/tasty-bacon-wrapped-hot-dog-isolated-on-transparent-background-png.png",
+        "pao": "Baguete",
+        "queijo":[
+          {"nome":"Queijo Cheddar"},
+          {"nome":"Queijo parmesão"}
+        ],
+        "molho":[
+          {"nome":"Mostarda"},
+          {"nome":"Ketchup"},
+          {"nome":"Barbecue"}
+        ],
+        "salada":[
+          {"nome":"Alface"},
+          {"nome":"Cebola Roxa"}
+        ],
+        "extra":[
+          {"nome": "Bacon"}
+        ],
+        "hamburger":[
+            {"nome":"Salsicha"}
+        ]
+      },
+      {
+        "nome": "Mini Dogão",
+        "valor": 10.90,
+        "imagem_url": "https://img.freepik.com/fotos-gratis/cachorro-quente-classico-com-ketchup-e-molho-de-mostarda-isolado-em-fundo-branco_123827-29747.jpg?w=740&t=st=1716831207~exp=1716831807~hmac=6c443f94a3c78e61cdb4e12679c35fb2d72635a2995ee5c25dcbc447f20fb991",
+        "pao": "Baguete",
+        "queijo":[
+        ],
+        "molho":[
+          {"nome":"Mostarda"}
+        ],
+        "salada":[
+          {"nome":"Alface"}
+        ],
+        "extra":[
+        ],
+        "hamburger":[
+          {"nome":"Salsicha"}
+        ]
+      }
+    ],
+
+    "combo_Veg": [
+      {
+        "nome": "Hamburguer Vegetariano",
+        "valor": 20.90,
+        "imagem_url": "https://img.freepik.com/fotos-premium/sanduiche-isolado_181303-230.jpg",
+        "pao": "Baguete",
+        "queijo":[],
+        "molho":[
+          {"nome":"Mostarda"},
+          {"nome":"Ketchup"}
+        ],
+        "salada":[
+          {"nome":"Tomate"},
+          {"nome":"Alface"},
+          {"nome":"Cebola Roxa"},
+          {"nome":"Pepino"}
+        ],
+        "extra":[],
+        "hamburger":[
+            {"nome":"Sem Hamburger"}
+        ]
+      },
+      {
+        "nome": "Sanduíche Vegano Simples",
+        "valor": 15.90,
+        "imagem_url": "https://previews.123rf.com/images/alexskp/alexskp1810/alexskp181000270/110810777-sandu%C3%ADche-de-baguete-fresco-com-presunto-queijo-tomate-e-alface-isolado-no-fundo-branco.jpg",
+        "pao": "Baguete",
+        "queijo":[],
+        "molho":[
+          {"nome":"Mostarda"}
+        ],
+        "salada":[
+          {"nome":"Alface"},
+          {"nome":"Tomate"}
+        ],
+        "extra":[],
+        "hamburger":[
+          {"nome":"Sem Hamburger"}
+        ]
+      }
+    ]
+}

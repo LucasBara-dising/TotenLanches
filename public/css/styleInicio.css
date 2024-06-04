@@ -1,0 +1,38 @@
+:root {
+    --yellow: #fc9200;
+    --red: #de0202;
+    --white: #fefefe;
+    --gray: #4d3f3f;
+    --blackGray: #3f3333;
+  }
+
+  #containerBox{
+    height: 90%;
+    margin-top: -20%;
+    width: 100%;
+  }
+  
+  .boxInicio {
+    position: relative;
+    height: auto;
+    width: 70%;
+    padding: 5%;
+    border-radius: 20px;
+    background-color: var(--red);
+    color: var(--yellow);
+    margin: 10% 15%;
+  }
+
+  .img-fluid{
+    height: 15vh;
+    width: auto;
+  }
+
+  .title-box{
+    color: var(--yellow);
+    font-weight: bold;
+    font-size: 1.5em;
+    margin-top: 10%;
+  }
+
+  

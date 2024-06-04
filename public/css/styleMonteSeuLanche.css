@@ -1,0 +1,78 @@
+  :root {
+    --yellow: #fc9200;
+    --red: #de0202;
+    --white: #fefefe;
+    --gray: #4D3F3F;
+  }
+
+  #grupItens{
+    position: relative;
+    margin-bottom: 10%;
+  }
+  
+  .sliders {
+    position: relative;
+    width: 100%;
+    display: block;
+    padding: 1rem;
+  }
+
+  .boximg {
+    width: auto;
+    height: 20vh;
+    text-align: center;
+    margin-bottom: 15%;
+  }
+
+  .img-ingredient {
+    width: auto;
+    max-width: 50%;
+    min-width: 50%;
+    height: 20vh;
+    left: 25%;
+    align-self: center;
+    position: absolute;
+    box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.20);
+  }
+
+  /* arrumar posisão */
+  .imgMark{
+    position: absolute;
+    height: 38px;
+    width: 38px;
+    margin-left: 20%;
+    margin-top: -5%;
+    z-index: 1;
+    visibility: hidden;
+  }
+  
+  .setas{
+    position: absolute;
+    top: 25%;
+    left: 0;
+    width: 100%;
+    padding: .5rem;
+  }
+  
+  .left-slider,.right-slider {
+    height: auto;
+    width: 25%;
+    position: relative;
+  }
+  
+  .info {
+    width: 100%;
+    position: absolute;
+    margin-top: 50%;
+    left: 0;
+    z-index: 1;
+    color: var(--gray);
+    text-align: center;
+  }
+
+  .imgcheckItem{
+    width: 8vw;
+    height: 100%;
+    margin-right: 2%;
+  }
+  

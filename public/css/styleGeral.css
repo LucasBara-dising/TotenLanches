@@ -1,0 +1,175 @@
+/* backgrounds */
+  :root {
+    --yellow: #fc9200;
+    --red: #de0202;
+    --white: #fefefe;
+    --gray: #4D3F3F;
+  }
+  
+ .background {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    background: repeating-linear-gradient(
+      to right,
+      var(--yellow),
+      var(--yellow) 30%,
+      var(--red) 0%,
+      var(--red) 75%
+    );
+  }
+
+  /* pop up de carrinho */
+  .modal-content {
+    width: 90%;
+    margin: 30% 5%;
+    padding: 5% 10%;
+    border-radius: 40px;
+  }
+  
+  .modal-title {
+    width: 100%;
+    color: var(--blackGray);
+    font-weight: bold;
+  }
+  
+  .modal-body {
+    padding: 0%;
+  }
+  
+  #totalPrice {
+    width: 100%;
+  }
+
+  .carrinhoTitle {
+    color: var(--blackGray);
+    font-weight: bold;
+    font-size: 1.5em;
+  }
+
+  #cartItemsForm{
+    width: 100%;
+  }
+
+  #btnOKModel{
+    width: 100%;
+    height: 6vh;
+    border-radius: 20px;
+    background-color: var(--yellow);
+    color: var(--white);
+    border: none;
+    display: none;
+  }
+
+  /* barra de escolha de categoria */
+  .choose{
+    background-color: #fefefe;
+    padding-top: 5px;
+    border-radius: 20px;
+    height: 6vh;
+    width: 80%;
+    margin:10% 10%;
+  }
+
+  .iconCategoria{
+    height: 4vh;
+    width: auto;
+  }
+
+  .barra{
+    background-color: #DA2B51;
+    width: 100%;
+    height: 10px;
+    margin: 5% 0%;
+    border-radius: 5px;
+  }
+
+  /* tipografia */
+  .title-page{
+    color: var(--white);
+  }
+
+  .title-item{
+    color: var(--gray);
+    font-weight: bold;
+    font-size: 2em;
+  }
+
+  .title-item-normal{
+    color: var(--gray);
+    font-size: 2em;
+    margin-bottom: 0;
+  }
+
+  .imgCarrinho{
+    width: 42px;
+    margin: 20px;
+  }
+  
+  .containerPedido {
+    width: 100%;
+    height: auto;
+    top: 30%;
+    position: absolute;
+    background-color: var(--white);
+    border-top-right-radius: 50px;
+    border-top-left-radius: 50px;
+    padding: 10% 5% 12vh 5% ;
+  }
+
+  .btnOK{
+    width: 80%;
+    height: 6vh;
+    border-radius: 20px;
+    background-color: var(--yellow);
+    color: var(--white);
+    border: none;
+    font-size: 1.5rem;
+  }
+
+  #btnDenovo{
+    width: 80%;
+    height: 6vh;
+    border-radius: 20px;
+    margin-top: 4vh;
+    margin-bottom: 6vh;
+    background-color: #4F7302;
+    color: var(--white);
+    border: none;
+    font-size: 1.5rem;
+  }
+
+  #btnOKConfirma{
+    width: 100%;
+    height: 6vh;
+    border-radius: 20px;
+    background-color: var(--yellow);
+    color: var(--white);
+    border: none;
+    display: none;
+  }
+
+  #footerTotal{
+    width: 105%;
+    height: auto;
+    padding: 1rem;
+    background-color: var(--red);
+    color: var(--white);
+  }
+
+  .check {
+    position: absolute;
+    height: 46px;
+    width: 46px;
+    margin-left: -5%;
+    margin-top: -5%;
+    visibility: hidden;
+  }
+
+  .img-batata {
+    width: auto;
+    max-width: 90%;
+    min-width: 100%;
+    height: 10vh;
+    box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.20);
+  }

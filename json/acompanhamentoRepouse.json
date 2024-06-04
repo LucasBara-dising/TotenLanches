@@ -1,0 +1,56 @@
+{
+  "valor_grande":12.90,
+  "valor_medio":10.90,
+  "valor_pequeno":9.00,
+  "valor_especial":15.90,
+
+  "grande": [
+    {
+      "nome": "Batata Frita 200G",
+      "imagem_url": "https://img.freepik.com/fotos-premium/uma-batata-frita-crocante-isolada-em-um-fundo-branco_890183-3915.jpg"
+    },
+    {
+      "nome": "Nuggets  10 un",
+      "imagem_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRikpausSbPByRhesKidvF-EecCAUp-fDJQ1ZwWf9DDqg&s"
+    }
+  ],
+  
+    "medio": [
+      {
+        "nome": "Batata Frita 90G",
+        "imagem_url": "https://img.freepik.com/fotos-premium/uma-batata-frita-crocante-isolada-em-um-fundo-branco_890183-3915.jpg"
+      },
+      {
+        "nome": "Nuggets  6 un",
+        "imagem_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRikpausSbPByRhesKidvF-EecCAUp-fDJQ1ZwWf9DDqg&s"
+      },
+      {
+        "nome": "Onion Rings 6 un",
+        "imagem_url": "https://static9.depositphotos.com/1529768/1216/i/950/depositphotos_12166573-stock-photo-deep-fried-onion-rings.jpg"
+      }
+    ],
+
+    "pequeno": [
+      {
+        "nome": "Batata Frita 50G",
+        "imagem_url": "https://img.freepik.com/fotos-premium/uma-batata-frita-crocante-isolada-em-um-fundo-branco_890183-3915.jpg"
+      },
+      {
+        "nome": "Nuggets  4 un",
+        "imagem_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRikpausSbPByRhesKidvF-EecCAUp-fDJQ1ZwWf9DDqg&s"
+      },
+      {
+        "nome": "Onion Rings 4 un",
+        "imagem_url": "https://static9.depositphotos.com/1529768/1216/i/950/depositphotos_12166573-stock-photo-deep-fried-onion-rings.jpg"
+      }
+    ],
+
+    "especial": [
+      {
+        "nome": "batata frita com cheddar e bacon",
+        "imagem_url": "https://cache-backend-mcd.mcdonaldscupones.com/media/image/product$kvX4h9AE/200/200/original?country=br"
+      }
+    ]
+
+    
+}
