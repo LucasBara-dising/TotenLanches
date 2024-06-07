@@ -1,3 +1,9 @@
+let objPao
+let objQueijo
+let objMolhos
+let objsalada
+let objExtra
+let objHamburger
 
 fetch('./json/sampleIngredintes.json').then((response) => {
 response.json().then((dados) => {
@@ -25,7 +31,14 @@ response.json().then((dados) => {
   //Hamburger
   criaSlider("Hamburger", "AddImgHamburger","btnLeftHamburger", "btnRightHamburger", "divImgHamburger", 
   "infoTitleHamburger", "contItensHamburger","BoxItemHamburger", "checkItemHamburger", itensSelectHamburger , dados.hamburger, 1)
-
+  
+  objPao=dados.paes
+  objQueijo=dados.queijos
+  objMolhos=dados.molhos
+  objsalada=dados.salada
+  objExtra=dados.extra
+  objHamburger=dados.hamburger
+  
   const btnOK = document.getElementById("btnOKLanche");
   btnOK.addEventListener("click", function() {
     const btnOKModel = document.getElementById("btnOKModel");
@@ -37,7 +50,6 @@ response.json().then((dados) => {
     //funcion na pagina criaJsonGeral
     geraTextIngrientes(dados.paes, dados.queijos, dados.molhos, dados.salada, dados.extra, dados.hamburger,valorPedido)
 
-    geraJson(dados.paes, dados.queijos, dados.molhos, dados.salada, dados.extra, dados.hamburger,valorPedido)
   });
 
   const carrinho = document.getElementById("btn-open-carrinho");

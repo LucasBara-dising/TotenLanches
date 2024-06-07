@@ -42,7 +42,7 @@
               <form id="cartItemsForm" action="/" method="POST">
                 <!-- Esse input receberá selectedItemsJSON gerado em .JS -->
                 <input type="hidden"  id="inputselectedItems" name="selectedItems" value="[]">
-                <a type="button" href="total_a_pagar.html" class="btn fw-bold" id="btnOKConfirma">Confirmar</a>
+                <a type="button" class="btn fw-bold" id="btnOKConfirma">Confirmar</a>
              </form>   
           </div>
       </div>
@@ -51,14 +51,14 @@
     
     <!-- background -->
     <div class="background">
-      <div class="d-flex justify-content-between">
+      <div class="d-flex justify-content-between" id="iconsTop">
         <!-- Button trigger modal -->
         <img src="imagens/carrinho-de-compras.png" class="imgCarrinho" id="btn-open-carrinho" data-bs-toggle="modal" data-bs-target="#ModalCarrinho"/>
         <!-- Home -->
         <a href="/"><img src="imagens/casa.png" class="imgCarrinho" id="btn-home"/></a>
       </div>
 
-      <div class="row choose text-center">
+      <div class="row choose text-center" id="chooser">
           <a  class="col-4">
             <img class="iconCategoria" id="iconHamburger" src="imagens/bread.png" alt="">
             <div class="barra" id="barraIconHamburger"></div>
@@ -121,7 +121,7 @@
         <div class="container mt-3" >
           <p class="title-item">
             Refrigerantes 
-            <p class="fs-5">R$5.90</p>
+            <p class="fs-5">R$0.00</p>
           </p>
           
           <div class="row gx-5" id="conteinerRefri"></div>            
@@ -131,7 +131,7 @@
         <div class="container mt-5">
           <p class="title-item">
             Água 500ml 
-            <p class="fs-5">R$4.00</p>
+            <p class="fs-5">R$0.00</p>
           </p>
           
           <div class="row gx-5" id="conteinerAgua"></div>
@@ -198,6 +198,22 @@
           </a>
         </div>
       </div>
+
+      <!-- Total final -->
+      <div class="conteinerTotalApagar">
+        <div id="containerFinalizado">
+          <div class="text-center">
+              <h2 class="font-weight-bold">Pedido Finalizado!!</h2>
+              <h4 class="mt-5">Mostre o código abaixo para realizar o pagamento</h4>
+              <h2 class="mt-5 fs-3 font-weight-bold" id="idPedido">Pedido N° - </h2>
+              <div class="mt-4 size container">
+                  <!-- Aqui teremos de gerar o QRCode automaticamente depois, sabe-se Deus como hahaha -->
+                  <div id="qrcode" alt="QRCode" class="img-fluid "></div>
+              </div>
+              <p id="dataAtual" class="fs-4 mt-3"></p>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- footer total -->
@@ -208,6 +224,10 @@
 
     
   </body>
+  <script>
+    // Define a data atual
+    document.getElementById("dataAtual").innerText = new Date().toLocaleDateString();
+</script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.1/js/bootstrap.min.js"></script>
   <script src="public/js/loadAcompanha.js"></script>
@@ -215,4 +235,6 @@
   <script src="public/js/loadCombos.js"></script>
   <script src="public/js/criaJsonGeral.js"></script>
   <script src="public/js/routes.js"></script>
+  <script type="text/javascript" src="../qrcodejs/davidshimjs-qrcodejs-04f46c6/qrcode.js"></script>
+  <script src="/public/js/qrCode.js"></script>
 </html>
