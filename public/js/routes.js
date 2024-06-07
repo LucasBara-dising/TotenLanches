@@ -47,6 +47,17 @@
     $("#barraIconAcompanhamento").css('display','none');
   };
 
+  $.fn.openPagamento = function () {
+    $('.conteinerTotalApagar').css('display','block');
+    $('.containerPedido').css('top','20%');
+    $('.containerPedido').css('height','75vh');
+
+    $("#ModalCarrinho").css('display','none');
+    $("#iconsTop").css('display','none');
+    $("#chooser").css('display','none');
+    $('html,body').scrollTop(0);
+  };
+
   //chamamados
   //chamado inicial
   document.addEventListener('DOMContentLoaded', function () {
@@ -120,7 +131,22 @@
   });
 
   $("#btnOKConfirma").click(function(){
-    geraJsonFromCombo()
+    $('.foo').openPagamento()
+    $('.foo').closeCarrinho()
+    $('.foo').closeAcompanhamento()
+    
+    if (window.location.pathname=="/montaLanche"){
+      geraJson(objPao, objQueijo, objMolhos, objsalada, objExtra, objHamburger, valorPedido)
+  }
+
+    if (window.location.pathname=="/combos"){
+      geraJsonFromCombo()
+    }
+
+    const txtTotal = document.getElementById("idPedido");
+    txtTotal.innerText="Pedido N° " + IdUnico
+
+    makeCode(IdUnico);
   })
 
  

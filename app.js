@@ -17,17 +17,16 @@ app.get('/combos', (req, res)=>{
   res.render('combos');
 })
 
-app.get('/:total_a_pagar', (req, res)=>{
-  res.render('total_a_pagar');
-})
 
 app.post('/', express.urlencoded({extended:true}), (req, res)=>{
   const selectedItems = JSON.parse(req.body.selectedItems);
+  console.log(selectedItems)
   run(selectedItems).catch(console.dir);
 })
 
 
 const { MongoClient } = require("mongodb");
+
 
 //conexão
 let uri =`mongodb+srv://${credencial.username}:${credencial.password}@cluster0.mzlrytu.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`
@@ -51,6 +50,7 @@ async function run(json) {
 
          // Insert o pedido na coleção       
          const p = await col.insertMany(json);
+
         } catch (err) {
         //mensagem de erro
          console.log(err.stack);
@@ -61,6 +61,30 @@ async function run(json) {
         await client.close();
     }
 }
+
+async function selectPedido(id) {
+  console.log("--------No app.js--------")
+
+    try {
+        // Connect to the Atlas cluster
+        await client.connect();
+
+        const filter = { "Id": id };
+        const document = await col.findOne(filter);
+        // Print results
+        console.log("Document found:\n" + JSON.stringify(document));
+
+        } catch (err) {
+        //mensagem de erro
+         console.log(err.stack);
+     }
+ 
+     finally {
+        //finaliza fechando o banco
+        await client.close();
+    }
+}
+
 
 
 //Setando a engine EJS

@@ -87,16 +87,17 @@ function criaCard(objItem, i, valor_item, conteiner, categoria, tipo){
                 break;
             case "combo": 
                 checkItemForCombo(this.id, imgCkeck, objItem[i], valor_item)
+                console.log(valor_item)
                 break;
         }
 
         let tipoPedido=""
 
-        if (window.location.pathname=="/montaLanche.html"){
+        if (window.location.pathname=="/montaLanche"){
             tipoPedido="montaLanche"
         }
 
-        if (window.location.pathname=="/combos.html"){
+        if (window.location.pathname=="/combos"){
             tipoPedido="combo"
         }
 
@@ -273,6 +274,8 @@ function checkItemForCombo(idBox, imgCkeck, objItem, valor_item){
   }
 
   function total(tipo){
+
+    let total
     if(tipo=="combo"){
         let somaCombo = 0;
 
@@ -280,21 +283,34 @@ function checkItemForCombo(idBox, imgCkeck, objItem, valor_item){
             somaCombo += value;
         });
 
-        return somaCombo + (QtnSelectedBebidas.get("Suco") * valor_suco_combo) + 
-            (QtnSelectedBebidas.get("Refrigerante") * valor_refri_combo) + 
-            (QtnSelectedBebidas.get("Agua") * valor_agua_combo)+ 
-            (QtnSelectedAcompanhamento.get("Grande") * valor_grande_combo) + 
-            (QtnSelectedAcompanhamento.get("Medio") * valor_medio_combo) + 
-            (QtnSelectedAcompanhamento.get("Pequeno") * valor_pequeno_combo) + 
-            (QtnSelectedAcompanhamento.get("Especial") * valor_especial_combo)
+        total= somaCombo + somaPedCombo()
+
     }else{
-        return valorPedido + (QtnSelectedBebidas.get("Suco") * valor_suco) + 
+        total = valorPedido + somaMontaPedido()
+    }
+
+    console.log(total)
+
+    return total
+}
+
+function somaPedCombo(){
+    return (QtnSelectedBebidas.get("Suco") * valor_suco_combo) + 
+        (QtnSelectedBebidas.get("Refrigerante") * valor_refri_combo) + 
+        (QtnSelectedBebidas.get("Agua") * valor_agua_combo)+ 
+        (QtnSelectedAcompanhamento.get("Grande") * valor_grande_combo) + 
+        (QtnSelectedAcompanhamento.get("Medio") * valor_medio_combo) + 
+        (QtnSelectedAcompanhamento.get("Pequeno") * valor_pequeno_combo) + 
+        (QtnSelectedAcompanhamento.get("Especial") * valor_especial_combo)
+}
+
+function somaMontaPedido(){
+     return (QtnSelectedBebidas.get("Suco") * valor_suco) + 
             (QtnSelectedBebidas.get("Refrigerante") * valor_refri) + 
             (QtnSelectedBebidas.get("Agua") * valor_agua)+ 
             (QtnSelectedAcompanhamento.get("Grande") * valor_grande) + 
             (QtnSelectedAcompanhamento.get("Medio") * valor_medio) + 
             (QtnSelectedAcompanhamento.get("Pequeno") * valor_pequeno) + 
             (QtnSelectedAcompanhamento.get("Especial") * valor_especial)
-    }
 }
 
